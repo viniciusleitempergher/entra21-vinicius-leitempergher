@@ -1,0 +1,196 @@
+// 1
+console.log(!10) // false
+console.log(!!"String") // true
+console.log(!!2.3) // true
+console.log(Boolean(null)) // false
+
+// 2 
+
+// A saída do programa apresenta erro
+
+// 3
+
+let valor = Number(prompt("Digite o valor"))
+if (valor > 10) {
+    console.log(`O valor A é maior que 10`)
+}
+
+// 4
+
+let numero = Number(prompt("Digite o número"))
+
+if (numero % 2 == 0) {
+    console.log(numero/2)
+}
+
+console.log(`Programa finalizado...`)
+
+// 5
+
+let numero = Number(prompt("Digite o número"))
+
+if (numero % 2 == 0) {
+    console.log(`O número é par.`)
+} else {
+    console.log(`O número é ímpar.`)
+}
+
+// 6
+
+let numero = Number(prompt("Digite o número"))
+
+if (numero > 20 && numero < 90) {
+    console.log(`O número está dentro da faixa`)
+} else {
+    console.log(`O número está fora da faixa`)
+}
+
+// 7
+
+Boolean(A > 10 && B <= 20) // Não mostra nada.
+Boolean(A > 10 || B <= 20) // Não mostra nada.
+Boolean((A === 10 || B > 20) && B === 20) // Não mostra nada.
+console.log(null || 2 || undefined) // Mostra 2
+Boolean(0 && 1) // Não mostra nada.
+
+// 8
+
+let numero1 = Number(prompt("Digite um número")),
+    numero2 = Number(prompt("Digite um número")),
+    numero3 = Number(prompt("Digite um número"))
+
+let maior
+
+(numero1 > numero2) ? maior = numero1 : maior = numero2
+
+if (maior < numero3) {
+    maior = numero3
+}
+
+console.log(`O maior número é ${maior}`)
+
+// 9
+
+let resultado
+
+(a + b < 4) ? resultado = "Abaixo" : resultado = "Acima"
+
+// 10
+
+let lado1 = Number(prompt("Digite um lado")),
+    lado2 = Number(prompt("Digite um lado")),
+    lado3 = Number(prompt("Digite um lado"))
+
+if (lado1 == lado2 && lado2 == lado3) {
+    console.log("O triângulo é equilátero")
+} else if (lado1 == lado2 || lado1 == lado3 || lado2 == lado3) {
+    console.log("O triângulo é isósceles")
+} else if (lado1 != lado2 && lado2 != lado3) {
+    console.log("O triângulo é escaleno")
+}
+
+// 11
+
+let numero = Number(prompt("Digite um número"))
+let raiz
+
+if (numero > 0) {
+    raiz = Math.sqrt(numero)
+    console.log(`Raíz quadrada: ${raiz.toFixed(2)}.`)
+} else {
+    console.log(`Número inválido.`)
+}
+
+// 12
+
+let numero = Number(prompt("Digite um número"))
+let raiz
+
+if (numero > 0) {
+    raiz = Math.sqrt(numero)
+    console.log(`Raíz quadrada: ${raiz.toFixed(2)}.`)
+} else {
+    console.log(`Número ao quadrado: ${numero**2}`)
+}
+
+// 13
+
+let salario = Number(prompt("Digite o salário"))
+let prestacao = Number(prompt("Digite a prestação"))
+
+if (prestacao > (salario * 0.2)) {
+    console.log("Empréstimo não concedido")
+} else {
+    console.log("Empréstimo concedido")
+}
+
+// 14
+
+let numero = Number(prompt("Digite um número de 1 à 7"))
+
+switch (numero) {
+    case 1:
+        console.log("Hoje é domingo!")
+        break;
+    case 2:
+        console.log("Hoje é segunda!")
+        break;
+    case 3:
+        console.log("Hoje é terça!")
+        break;
+    case 4:
+        console.log("Hoje é quarta!")
+        break;
+    case 5:
+        console.log("Hoje é quinta!")
+        break;
+    case 6:
+        console.log("Hoje é sexta!")
+        break;
+    case 7:
+        console.log("Hoje é sábado!")
+        break;
+}
+
+// 15
+
+let numero = Number(prompt("Digite um número de 1 à 12"))
+
+switch (numero) {
+    case 1:
+        console.log("Janeiro")
+        break;
+    case 2:
+        console.log("Fevereiro")
+        break;
+    case 3:
+        console.log("Março")
+        break;
+    case 4:
+        console.log("Abril")
+        break;
+    case 5:
+        console.log("Maio")
+        break;
+    case 6:
+        console.log("Junho")
+        break;
+    case 7:
+        console.log("Julho")
+        break;
+    case 8:
+        console.log("Agosto")
+        break;
+    case 9:
+        console.log("Setembro")
+        break;
+    case 10:
+        console.log("Outubro")
+        break;
+    case 11:
+        console.log("Novembro")
+        break;
+    case 12:
+        console.log("Dezembro")
+        break;
+}
