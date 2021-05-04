@@ -1,0 +1,28 @@
+
+< Comandos Git >
+
+git init - inicia o git na pasta atual
+
+git config --global user.name "Vinícius G. Leitempergher"
+git config --global user.email "viniciusgabriel.com@gmail.com"
+git config --global --list
+
+git add <arquivo.xx> - adiciona o arquivo na área de staging
+
+git status - mostra o status do repositório
+
+git commit -m "Criado o arquivo primeiro.html" - salva na núvem
+
+git log - mostra o último usuário que commitou
+
+git restore --staged primeiro.html - restaura o arquivo que está em staging
+
+git branch -M main - muda de master para main
+
+git remote add origin https://github.com/viniciusleitempergher/entra21-viniciusLeitempergher.git
+
+git pull - atualiza a pasta local com a núvem
+
+git push - upar para núvem
+
+git clone - pegar um repositório da internet

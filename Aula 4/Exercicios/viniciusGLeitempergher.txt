@@ -1,0 +1,125 @@
+// Exercício 1
+    let nome = "Vinícius"
+    console.log(`Oi, meu nome é ${nome}`)
+
+// Exercício 2
+    console.log(
+        `
+Cadastro de Funcionários:
+1) Cadastrar funcionário 
+2) Listar funcionários
+3) Editar funcionário
+4) Deletar funcionário
+5) Sair
+        `
+    )
+
+// Exercício 3
+    let nome = "João", admin = nome
+    console.log(nome)
+
+
+// Exercício 4
+    let usuario = { nome: "Vinícius", idade: "17", peso: "60", altura: "1.80", telefone: "47 98415-8284" }
+
+    console.log(`
+Nome: ${usuario.nome}
+Idade: ${usuario.idade}
+Peso: ${usuario.peso}
+Altura: ${usuario.altura}
+Telefone: ${usuario.telefone}
+    `)
+
+// Exercício 5
+    let livro = {titulo: "Sistemas Operacionais", edicao:"4", autor:"Rômulo, Alexandre, Simão", dataPublicacao: "2010"}
+    console.log(`
+Título: ${livro.titulo}
+Edição: ${livro.edicao}
+Autor: ${livro.autor}
+Data de Publicação: ${livro.dataPublicacao}
+    `)
+
+// Exercício 6
+    let dataNascimento, quantidadeFilhos, usuarioLogado
+
+// Exercício 7
+    let nome = "João"
+    console.log(`Olá ${1}`) // Olá 1
+    console.log(`Olá ${"nome"}`) // Olá nome
+    alert(`Olá ${nome}`) // Olá João
+
+// Exercício 8
+    121
+
+// Exercício 9
+    4 5
+
+// Exercício 10
+
+A) "" + 1 + 0 // 10
+B) "" - 1 + 0 // -1
+C) 6 / "3" // 2
+D) "2" * "3" // 6
+E) 4 + 5 + "px" // 9px
+F) "$" + 4 + 5 // $45
+G) "4" - 2 // 2
+
+// Exercício 11
+
+    let altura = Number(prompt("Digite a altura")), largura = Number(prompt("Digite a largura"))
+
+    let area = altura * largura
+    let perimetro = (altura * 2) + (largura * 2)
+
+    console.log(`Perímetro: ${perimetro}
+Área: ${area}`)
+
+// Exercício 12
+
+    let numero1 = Number(prompt("Digite o número 1")), numero2 = Number(prompt("Digite o número 2"))
+
+    let soma = numero1 + numero2
+
+    console.log(`Resultado da soma: ${soma}`)
+
+// Exercício 13
+
+    let nota1 = Number(prompt("Digite a nota 1")), nota2 = Number(prompt("Digite a nota 2"))
+
+    let media = (nota1 + nota2) /2
+
+    console.log(`Média: ${media}`)
+
+// Exercício 14
+
+    let numero1 = Number(prompt("Digite o número 1")), numero2 = Number(prompt("Digite o número 2")),
+    numero3 = Number(prompt("Digite o número 3"))
+
+    let quadrado1 = numero1**2
+    let quadrado2 = numero2**2
+    let quadrado3 = numero3**2
+
+    console.log(`Quadrado 1: ${quadrado1}
+Quadrado 2: ${quadrado2}
+Quadrado 3: ${quadrado3}`)
+
+// Exercício 15
+
+    let a = 10
+    let b = 20
+
+    a = a ^ b;
+    b = b ^ a;
+    a = a ^ b;
+
+    console.log(
+`Variável A: ${a} 
+Variável B: ${b}`)
+
+// Exercício 16
+
+    let numeroMeses = Number(prompt("Digite a quantidade de meses:"))
+
+    let dias = numeroMeses * 30
+
+    console.log("Quantidade de dias: " + dias)

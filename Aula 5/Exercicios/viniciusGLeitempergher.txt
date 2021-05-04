@@ -1,0 +1,97 @@
+// Exercício 1
+
+        console.log(!10) // false
+        console.log(!!"String") // true 
+        console.log(!!2.3) // true
+        console.log(Boolean(null)) // false 
+
+// Exercício 2
+
+        // A saída do exercício apresenta erro:
+        // Uncaught SyntaxError: expected expression, got '='
+
+// Exercício 3
+
+        let numero = Number(prompt("Digite o número"))
+
+        if (numero > 10) {
+            console.log("O valor A é maior que 10.")
+        }
+
+// Exercício 4
+
+        let numero = Number(prompt("Digite o número"))
+
+        if (numero % 2 == 0) {
+            console.log(numero / 2)
+        }
+
+// Exercício 5
+
+        let numero = Number(prompt("Digite o número"))
+
+        if (numero % 2 == 0) {
+            console.log("O número é par.")
+        } else {
+            console.log("O número é ímpar.")
+        }
+
+// Exercício 6
+
+        let numero = Number(prompt("Digite o número"))
+
+        if (numero > 20 && numero < 90) {
+            console.log("O número está entre 20 e 90.")
+        } else {
+            console.log("O número está fora da faixa.")
+        }
+
+// Exercícios Desafio:
+
+// Exercício 17
+
+        let numero = Number(prompt("Digite o número"))
+
+        console.log(--numero, ++numero, ++numero)
+
+// Exercício 18
+
+        const PI = 3.14159
+        let raio = Number(prompt("Digite o raio da esfera"))
+
+        let volume = (4/3) * PI * raio**3
+
+        console.log("O volume da esfera é: " + volume.toFixed(2))
+
+// Exercício 19
+
+        let base = Number(prompt("Digite a base do triângulo"))
+        let altura = Number(prompt("Digite a altura do triângulo"))
+
+        let area = (base * altura) / 2
+
+        console.log("A área do triângulo é: " + area)
+
+// Exercício 20
+
+        let preco = Number(prompt("Digite o preço do produto"))
+        let desconto = Number(prompt("Digite o desconto em porcentagem"))
+
+        desconto = desconto / 100
+
+        console.log(
+            `
+Total: ${preco - preco * desconto} 
+Desconto: ${preco * desconto}
+Desconto (%): ${desconto * 100}%
+            `)
+
+// Exercício 21
+
+        let nome = prompt("Digite o nome:")
+        let salario = Number(prompt("Digite o salário fixo:"))
+        let totalVendas = Number(prompt("Digite o total de vendas do mês:"))
+
+        let salarioReajustado = totalVendas * 0.15 + salario
+
+        console.log("O total a receber no final do mês é: "  + salarioReajustado.toFixed(2))
