@@ -103,6 +103,12 @@ if (numero > 0) {
 
 // 12
 
+let numero = Number(prompt("Digite um número"));
+(numero % 5 == 0) ? console.log("O número é divisível por 5") :
+    console.log("O número não é divisível por 5")
+
+// 13
+
 let numero = Number(prompt("Digite um número"))
 let raiz
 
@@ -113,7 +119,7 @@ if (numero > 0) {
     console.log(`Número ao quadrado: ${numero**2}`)
 }
 
-// 13
+// 14
 
 let salario = Number(prompt("Digite o salário"))
 let prestacao = Number(prompt("Digite a prestação"))
@@ -124,7 +130,54 @@ if (prestacao > (salario * 0.2)) {
     console.log("Empréstimo concedido")
 }
 
-// 14
+// 15
+
+let time1Gols = Number(prompt("Digite quantos gols fez o primeiro time"));
+let time2Gols = Number(prompt("Digite quantos gols fez o segundo time"));
+
+if (time1Gols > time2Gols) {
+    console.log("O primero time venceu.")
+} else if (time2Gols > time1Gols) {
+    console.log("O segundo time venceu.")
+} else {
+    console.log("A partida empatou!")
+}
+
+// 16
+
+let idade = Number(prompt("Digite sua idade"))
+
+if (idade < 16) {
+    console.log("Não pode votar")
+} else if (idade < 18) {
+    console.log("Voto opcional")
+} else {
+    console.log("Voto obrigatório")
+}
+
+// 17
+
+let numero1 = Number(prompt("Digite o número 1"))
+let numero2 = Number(prompt("Digite o número 2"))
+let numero3 = Number(prompt("Digite o número 3"))
+
+let lista = [numero1, numero2, numero3]
+
+lista = lista.sort(function (a, b) { return a - b })
+
+console.log(lista[0], lista[1], lista[2])
+
+// 18
+
+let idade = Number(prompt("Digite sua idade"))
+
+if (idade >= 18 && idade < 67) {
+    console.log("Você pode doar sangue.")
+} else {
+    console.log("Você não pode doar sangue.")
+}
+
+// 19
 
 let numero = Number(prompt("Digite um número de 1 à 7"))
 
@@ -152,7 +205,7 @@ switch (numero) {
         break;
 }
 
-// 15
+// 20
 
 let numero = Number(prompt("Digite um número de 1 à 12"))
 
@@ -193,4 +246,20 @@ switch (numero) {
     case 12:
         console.log("Dezembro")
         break;
+}
+
+// 21
+
+let turno = prompt("Digite M para matutino, V para vespertino ou N para noturno")
+
+switch (turno) {
+    case "M":
+        console.log("Bom dia!")
+        break
+    case "V":
+        console.log("Boa tarde!")
+        break
+    case "N":
+        console.log("Boa noite!")
+        break
 }
