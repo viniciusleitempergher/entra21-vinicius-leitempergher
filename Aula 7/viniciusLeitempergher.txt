@@ -55,11 +55,11 @@ if (numero > 20 && numero < 90) {
 
 // 7
 
-Boolean(A > 10 && B <= 20) // Não mostra nada.
-Boolean(A > 10 || B <= 20) // Não mostra nada.
-Boolean((A === 10 || B > 20) && B === 20) // Não mostra nada.
-console.log(null || 2 || undefined) // Mostra 2
-Boolean(0 && 1) // Não mostra nada.
+Boolean(A > 10 && B <= 20) // false
+Boolean(A > 10 || B <= 20) // true
+Boolean((A === 10 || B > 20) && B === 20) // true
+console.log(null || 2 || undefined) // 2
+Boolean(0 && 1) // false
 
 // 8
 
@@ -140,8 +140,8 @@ if (prestacao > (salario * 0.2)) {
 
 // 15
 
-let time1Gols = Number(prompt("Digite quantos gols fez o primeiro time"));
-let time2Gols = Number(prompt("Digite quantos gols fez o segundo time"));
+let time1Gols = Number(prompt("Digite quantos gols fez o primeiro time"))
+let time2Gols = Number(prompt("Digite quantos gols fez o segundo time"))
 
 if (time1Gols > time2Gols) {
     console.log("O primero time venceu.")
@@ -165,9 +165,9 @@ if (idade < 16) {
 
 // 17
 
-let numero1 = Number(prompt("Digite o número 1"))
-let numero2 = Number(prompt("Digite o número 2"))
-let numero3 = Number(prompt("Digite o número 3"))
+let numero1 = Number(prompt("Digite o número 1")),
+    numero2 = Number(prompt("Digite o número 2")),
+    numero3 = Number(prompt("Digite o número 3"))
 
 let lista = [numero1, numero2, numero3]
 
