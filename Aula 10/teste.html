@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+
+<body>
+    <script>
+
+        let opcao
+
+        let jose = 0,
+            joao = 0,
+            maria = 0,
+            nulo = 0,
+            branco = 0
+
+        while (true) {
+            opcao = +prompt(`
+1 - José Bolinha
+2 - Maria Nascimento
+3 - João da Silva
+4 - Voto nulo
+5 - Voto em branco
+            `)
+
+            switch (opcao) {
+                case 0:
+                    break
+                case 1:
+                    jose++
+                    break
+                case 2:
+                    maria++
+                    break
+                case 3:
+                    joao++
+                    break
+                case 4:
+                    nulo++
+                    break
+                case 5:
+                    branco++
+                    break
+                default:
+                    console.log(`Número Inválido`)
+                    break
+            }
+        }
+
+    </script>
+</body>
+
+</html>
