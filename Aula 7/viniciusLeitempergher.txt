@@ -79,8 +79,6 @@ console.log(`O maior número é ${maior}`)
 
 // 9
 
-let resultado
-
 (a + b < 4) ? resultado = "Abaixo" : resultado = "Acima"
 
 // 10
