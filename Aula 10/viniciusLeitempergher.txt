@@ -207,3 +207,132 @@ console.log(`Menor valor: ${menor}`)
 
 // 17
 
+        let opcao
+
+        let jose = 0,
+            joao = 0,
+            maria = 0,
+            nulo = 0,
+            branco = 0
+
+        infinito:
+        while (true) {
+            opcao = +prompt(`
+1 - José Bolinha
+2 - Maria Nascimento
+3 - João da Silva
+4 - Voto nulo
+5 - Voto em branco
+            `)
+
+            switch (opcao) {
+                case 0:
+                    break infinito
+                case 1:
+                    jose++
+                    break
+                case 2:
+                    maria++
+                    break
+                case 3:
+                    joao++
+                    break
+                case 4:
+                    nulo++
+                    break
+                case 5:
+                    branco++
+                    break
+                default:
+                    console.log(`Número Inválido`)
+                    break
+            }
+        }
+
+        console.log(`
+José Bolinha: ${jose} voto(s)
+Maria Nascimento: ${maria} voto(s)
+João da Silva: ${joao} voto(s)
+Votos nulos: ${nulo} voto(s)
+Votos em branco: ${branco} voto(s)
+            `)
+
+// 18
+
+for (let i = 0; i < 4; i++) {
+    let media = +prompt("Digite a média")
+
+    if (media < 5) {
+        console.log("Conceito: D")
+    } else if (media < 7) {
+        console.log("Conceito: C")
+    } else if (media < 9) {
+        console.log("Conceito: B")
+    } else {
+        console.log("Conceito: A")
+    }
+}
+
+// 19
+
+while (true) {
+    let soma = 0
+    let media
+
+    let codigo = prompt("Digite o código")
+
+    if (codigo == 0) {break}
+
+    for (let i = 0; i < 3; i++) {
+        soma += +prompt("Digite a nota")
+    }
+    media = soma / 3
+
+    console.log(`A média do aluno com a matrícula ${codigo} é ${media}`)
+}
+
+// 20
+
+let numero1 = +prompt("Digite o número 1"),
+    numero2 = +prompt("Digite o número 2")
+
+let maior, menor
+
+if (numero1 > numero2) {
+    maior = numero1
+    menor = numero2
+} else {
+    maior = numero2
+    menor = numero1
+}
+
+let soma = menor, multiplicacao = menor
+
+for (let i = menor + 1; i <= maior; i++) {
+    if (i % 2 == 0) {
+        soma += i
+    } else {
+        multiplicacao *= i
+    }
+}
+console.log(`Soma dos pares: ${soma}`)
+console.log(`Multiplicação dos ímpares: ${multiplicacao}`)
+
+// 21
+
+let i = 1
+let quantidadePrimos = 0
+
+while (quantidadePrimos < 20) {
+    i++
+    let primo = true
+    for (let l = 2; l < i; l++) {
+        if (i % l == 0) {
+            primo = false
+        }
+    }
+    if(primo) {
+        console.log(i)
+        quantidadePrimos++
+    }
+}
