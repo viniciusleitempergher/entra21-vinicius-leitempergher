@@ -1,0 +1,60 @@
+// 1
+
+let numero1 = +prompt("Digite a base"),
+    numero2 = +prompt("Digite o exponente")
+
+console.log(`Resultado: ${numero1 ** numero2}`)
+
+// 2
+
+let antigo = 1
+let atual = 1
+let aux = atual
+
+let numero = +prompt("Digite o número")
+
+while (atual <= numero) {
+    aux = atual
+    atual = atual + antigo
+    antigo = aux
+
+    if (!(atual > numero)) {
+        console.log(atual)
+    }
+}
+
+// 3
+
+let quantidadeIntervalo1 = 0,
+    quantidadeIntervalo2 = 0,
+    quantidadeIntervalo3 = 0
+
+while (true) {
+    let numero = +prompt("Digite um número")
+    if (numero < 0) {
+        break
+    } else if (numero >= 0 && numero <= 25) {
+        quantidadeIntervalo1++
+    } else if (numero >= 26 && numero <= 50) {
+        quantidadeIntervalo2++
+    } else if (numero >= 51 && numero <= 75) {
+        quantidadeIntervalo3++
+    }
+
+}
+
+console.log(`Intervalo [0-25]: ${quantidadeIntervalo1}`)
+console.log(`Intervalo [26-50]: ${quantidadeIntervalo2}`)
+console.log(`Intervalo [51-75]: ${quantidadeIntervalo3}`)
+
+// 4
+
+let numero = prompt("Digite um número inteiro positivo")
+let numeroInvertido = ""
+
+for (let i = numero.length; i >= 0; i--) {
+    numeroInvertido += numero.charAt(i)
+}
+
+console.log(numeroInvertido)
+
