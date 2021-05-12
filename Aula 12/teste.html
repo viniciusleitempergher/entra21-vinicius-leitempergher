@@ -9,24 +9,30 @@
 
 <body>
     <script>
-        // 2) Escreva um programa que leia 5 numeros e os armazene em um vetor. Mostre o vetor, o 
-        // maior elemento e a posição que ele se encontra.
 
         let lista = [],
-            maior,
-            posicao
+            listaCrescente = [],
+            posicaoMaior = 0
 
-        for (let i = 0; i < 5; i++) {
-            lista[i] = +prompt("Digite um número")
-
-            if (i == 0) {
-                maior = lista[i]
-                posicao = i
-            }
-
+        for (let i = 0; i < 10; i++) {
+            let sorteado = +(Math.random() * 100 + 1).toFixed()
+            lista[i] = sorteado
         }
 
-        console.log(`A quantidade de números pares é: ${pares}`)
+        console.log(`Lista Sorteada: ${lista}`)
+
+        for (let l = lista.length - 1; l >= 0; l--) {
+            for (let i = 0; i <= lista.length; i++) {
+                if (lista[posicaoMaior] < lista[i]) {
+                    posicaoMaior = i
+                }
+            }
+            listaCrescente[l] = lista[posicaoMaior]
+            lista.splice(posicaoMaior, 1)
+            posicaoMaior = 0
+        }
+
+        console.log(`Lista Crescente: ${listaCrescente}`)
     </script>
 </body>
 

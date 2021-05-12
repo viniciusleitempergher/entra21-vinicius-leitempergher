@@ -14,3 +14,314 @@ for (let i of lista) {
 console.log(`A quantidade de números pares é: ${pares}`)
 
 // 2
+
+let lista = [],
+    posicaoMaior = 0
+
+for (let i = 0; i < 5; i++) {
+    lista[i] = +prompt("Digite um número")
+
+    if (lista[i] > lista[posicaoMaior]) {
+        posicaoMaior = i
+    }
+}
+
+console.log(`Lista dos valores informados: ${String(lista)}`)
+console.log(`O maior valor informado foi: ${lista[posicaoMaior]}`)
+console.log(`Se encontra na posição: ${posicaoMaior}`)
+
+// 3
+
+let lista = [],
+    posicaoMaior = 0,
+    posicaoMenor = 0
+
+for (let i = 0; i < 5; i++) {
+    lista[i] = +prompt("Digite um número")
+
+    if (lista[i] > lista[posicaoMaior]) {
+        posicaoMaior = i
+    }
+    if (lista[i] < lista[posicaoMenor]) {
+        posicaoMenor = i
+    }
+}
+
+console.log(`Menor número informado: ${lista[posicaoMenor]}`)
+console.log(`Maior número informado: ${lista[posicaoMaior]}`)
+
+// 4
+
+let lista = [],
+    listaInversa = [],
+    l = 4
+
+for (let i = 0; i < 5; i++) {
+    lista[i] = +prompt("Digite um número")
+    listaInversa[l] = lista[i]
+    l--
+}
+
+console.log(`Vetor: ${String(lista)}`)
+console.log(`Vetor Invertido: ${String(listaInversa)}`)
+
+// 5
+
+let lista = []
+
+for (let i = 0; i < 5; i++) {
+    lista[i] = prompt("Digite um nome")
+}
+
+let pesquisa = prompt("Digite um nome para ser encontrado")
+
+if (lista.includes(pesquisa)) {
+    console.log("Achei")
+} else {
+    console.log("Não achei")
+}
+
+// 6
+
+let lista = [1, 0, 5, -2, -5, 7],
+    soma = lista[0] + lista[1] + lista[5]
+
+lista[4] = 100
+
+console.log(`Resultado da soma: ${soma}`)
+
+for (let i of lista) {
+    console.log(i)
+}
+
+// 7
+
+let lista = [],
+    quadrados = []
+
+for (let i = 0; i < 5; i++) {
+    lista[i] = +prompt("Digite um número")
+    quadrados[i] = lista[i] ** 2
+}
+
+console.log(String(quadrados))
+
+// 8
+
+let lista = [],
+    listaInversa = [],
+    l = 4
+
+for (let i = 0; i < 5; i++) {
+    lista[i] = +prompt("Digite um número")
+    if (lista[i] % 2 != 0) {
+        alert("O valor deve ser par!!!!")
+        i--
+        continue
+    }
+    listaInversa[l] = lista[i]
+    l--
+}
+
+console.log(`Vetor: ${String(lista)}`)
+console.log(`Vetor Invertido: ${String(listaInversa)}`)
+
+// 9
+
+let lista = []
+
+for (let i = 0; i < 8; i++) {
+    lista[i] = +prompt("Digite um valor")
+}
+
+let x, y
+
+while (true) {
+    x = +prompt("Digite o valor X")
+    y = +prompt("Digite o valor Y")
+
+    if (x >= 0 && x <= 8 && y >= 0 && y <= 8) {
+        break
+    } else {
+        console.log("Você digitou um valor inválido")
+    }
+}
+
+let soma = lista[x] + lista[y]
+
+console.log(`Soma dos valores X e Y: ${soma}`)
+
+// 10
+
+let lista = [],
+    quantidadeNegativos = 0,
+    somaPositivos = 0
+
+for (let i = 0; i < 10; i++) {
+    lista[i] = +prompt("Digite um valor")
+
+    if (lista[i] < 0) {
+        quantidadeNegativos++
+    } else if (lista[i] > 0) {
+        somaPositivos += lista[i]
+    }
+}
+
+console.log(`Quantidade de negativos: ${quantidadeNegativos}`)
+console.log(`Soma dos positivos: ${somaPositivos}`)
+
+// 11
+
+let lista = [],
+    posicaoMaior = 0,
+    posicaoMenor = 0
+
+for (let i = 0; i < 5; i++) {
+    lista[i] = +prompt("Digite um valor")
+    if (lista[i] > lista[posicaoMaior]) {
+        posicaoMaior = i
+    }
+    if (lista[i] < lista[posicaoMenor]) {
+        posicaoMenor = i
+    }
+}
+console.log(`Posição do maior valor: ${posicaoMaior}`)
+console.log(`Posição do menor valor: ${posicaoMenor}`)
+
+// 12
+
+let quantidade = [0, 0, 0, 0, 0, 0]
+
+for (let i = 0; i < 100; i++) {
+    let sorteado = (Math.random() * 5 + 1).toFixed()
+    quantidade[sorteado - 1] = quantidade[sorteado - 1] + 1
+}
+
+for (let i = 0; i < 6; i++) {
+    console.log(`Número ${i + 1} apareceu ${quantidade[i]} vezes`)
+}
+
+// 13
+
+let notas = [],
+    soma = 0,
+    posicaoMaior = 0
+
+for (let i = 0; true; i++) {
+    notas[i] = +prompt("Digite a nota")
+    if (notas[i] < 0) {
+        notas.pop()
+        break
+    }
+
+    soma += notas[i]
+
+    if (notas[i] > notas[posicaoMaior]) {
+        posicaoMaior = i
+    }
+}
+
+let media = soma / notas.length
+
+console.log(`Média da turma: ${media.toFixed(2)}`)
+console.log(`Maior nota da turma: ${notas[posicaoMaior]}`)
+
+// 14
+
+let lista1 = []
+
+for (let i = 0; i < 5; i++) {
+    lista1[i] = prompt("Digite um valor para o primeiro vetor")
+}
+
+let lista2 = []
+
+for (let i = 0; i < 5; i++) {
+    lista2[i] = prompt("Digite um valor para o segundo vetor")
+}
+
+let flag = false
+
+for (let i = 0; i < 5; i++) {
+    if (lista1[i] != lista2[i]) {
+        flag = true
+        break
+    }
+}
+
+if (flag) {
+    console.log("Os vetores são diferentes.")
+} else {
+    console.log("Os vetores são iguais.")
+}
+
+// 15
+
+let lista1 = []
+
+for (let i = 0; i < 5; i++) {
+    lista1[i] = prompt("Digite um valor para o primeiro vetor")
+}
+
+let lista2 = []
+
+for (let i = 0; i < 5; i++) {
+    lista2[i] = prompt("Digite um valor para o segundo vetor")
+}
+
+let interseccao = []
+
+for (let i = 0; i < 5; i++) {
+    if (lista1[i] == lista2[i]) {
+        interseccao.push(lista1[i])
+    }
+}
+
+console.log(`Vetor 1: ${String(lista1)}`)
+console.log(`Vetor 2: ${String(lista2)}`)
+console.log(`Intersecção: ${String(interseccao)}`)
+
+// 16
+
+let numero1 = +prompt("Digite o primeiro número"),
+    numero2 = +prompt("Digite o segundo número")
+
+let intervalo = []
+
+if (numero2 < numero1) {
+    let aux = numero1
+    numero1 = numero2
+    numero2 = aux
+}
+
+for (let i = numero1 + 1; i < numero2; i++) {
+    intervalo.push(i)
+}
+
+console.log(`Intervalo entre o números: ${String(intervalo)}`)
+
+// 17
+
+let lista = [],
+    listaCrescente = [],
+    posicaoMaior = 0
+
+for (let i = 0; i < 10; i++) {
+    let sorteado = +(Math.random() * 100 + 1).toFixed()
+    lista[i] = sorteado
+}
+
+console.log(`Lista Sorteada: ${lista}`)
+
+for (let l = lista.length - 1; l >= 0; l--) {
+    for (let i = 0; i <= lista.length; i++) {
+        if (lista[posicaoMaior] < lista[i]) {
+            posicaoMaior = i
+        }
+    }
+    listaCrescente[l] = lista[posicaoMaior]
+    lista.splice(posicaoMaior, 1)
+    posicaoMaior = 0
+}
+
+console.log(`Lista Crescente: ${listaCrescente}`)
