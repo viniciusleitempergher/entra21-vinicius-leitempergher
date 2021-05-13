@@ -9,27 +9,39 @@
 
 <body>
     <script>
+        // 21) Faça um script que receba o nome de cinco produtos e seus respectivos preços,
+        //  armazene­-os em dois vetores separados, 
+        // um para os produtos e outro para os preços. O programa deve calcular e mostrar:
+        // a) A quantidade de produtos com preço inferior a R$ 50,00;
+        // b) O nome dos produtos com preço entre R$ 50,00 e R$ 100,00;
+        // c) A média dos preços dos produtos com preço superior a R$ 100,00.
 
-        // 19) Faça um script que:
-        // a) Crie uma variável com o texto: "Sem trocar que o espinho é seco.\n Sem trocar que seco é ser sol.\n Sem trocar que algum espinho seco secará."
-        // b) Mostre na tela a variável
-        // c) Substitua as palavras "trocar" por "sacar" na String (**NÃO UTILIZAR O MÉTODO REPLACE**)
-        // d) Mostre na tela a String com os valores trocados
+        let produtos = [],
+            precos = [],
+            quantidadeInferiores = 0,
+            produtosIntervalo = [],
+            somaSuperiores = 0,
+            quantidadeSuperiores = 0
 
-        let texto = "Sem trocar que o espinho é seco.\n Sem trocar que seco é ser sol.\n Sem trocar que algum espinho seco secará."
+        for (let i = 0; i < 10; i++) {
+            produtos[i] = prompt("Digite o produto")
+            precos[i] = +prompt("Digite o preço")
 
-        let textoAlterado = ""
-        let palavras = texto.split(" ")
-
-        for (let i = 0; i < palavras.length; i++) {
-            if (palavras[i] == "trocar") {
-                palavras[i] = "sacar"
+            if (precos[i] < 50) {
+                quantidadeInferiores++
+            } else if (precos[i] <= 100) {
+                produtosIntervalo.push(produtos[i])
+            } else {
+                somaSuperiores += precos[i]
+                quantidadeSuperiores++
             }
-            textoAlterado += palavras[i] + " "
         }
 
-        console.log(texto)
-        console.log(textoAlterado)
+        let mediaSuperiores = somaSuperiores / quantidadeSuperiores
+
+        console.log(`Quantidade de produtos com preço inferior a R$ 50,00: ${quantidadeInferiores}`)
+        console.log(`Nome dos produtos com preço entre R$ 50,00 e R$ 100,00: ${String(produtosIntervalo)}`)
+        console.log(`A média dos preços dos produtos com preço superior a R$ 100,00: R$ ${mediaSuperiores.toFixed(2)}`)
 
     </script>
 </body>

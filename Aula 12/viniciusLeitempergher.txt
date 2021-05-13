@@ -362,3 +362,53 @@ for (let i = 0; i < palavras.length; i++) {
 
 console.log(texto)
 console.log(textoAlterado)
+
+// 20
+
+let notas = [],
+    notasAcima = [],
+    soma = 0
+
+for (let i = 0; i < 10; i++) {
+    notas[i] = +prompt("Digite uma nota")
+    soma += notas[i]
+}
+
+let media = soma / 10
+
+for (let i of notas) {
+    if (i > media) {
+        notasAcima.push(i)
+    }
+}
+
+console.log(`As notas acima da média são: ${String(notasAcima)}`)
+
+// 21
+
+let produtos = [],
+    precos = [],
+    quantidadeInferiores = 0,
+    produtosIntervalo = [],
+    somaSuperiores = 0,
+    quantidadeSuperiores = 0
+
+for (let i = 0; i < 10; i++) {
+    produtos[i] = prompt("Digite o produto")
+    precos[i] = +prompt("Digite o preço")
+
+    if (precos[i] < 50) {
+        quantidadeInferiores++
+    } else if (precos[i] <= 100) {
+        produtosIntervalo.push(produtos[i])
+    } else {
+        somaSuperiores += precos[i]
+        quantidadeSuperiores++
+    }
+}
+
+let mediaSuperiores = somaSuperiores / quantidadeSuperiores
+
+console.log(`Quantidade de produtos com preço inferior a R$ 50,00: ${quantidadeInferiores}`)
+console.log(`Nome dos produtos com preço entre R$ 50,00 e R$ 100,00: ${String(produtosIntervalo)}`)
+console.log(`A média dos preços dos produtos com preço superior a R$ 100,00: R$ ${mediaSuperiores.toFixed(2)}`)
