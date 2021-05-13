@@ -325,3 +325,40 @@ for (let l = lista.length - 1; l >= 0; l--) {
 }
 
 console.log(`Lista Crescente: ${listaCrescente}`)
+
+// 18
+
+let lista = [],
+    soma = 0,
+    multiplicacao = 1
+
+for (let i = 0; i < 10; i++) {
+    let sorteado = +(Math.random() * 10 + 1).toFixed()
+    lista[i] = sorteado
+    if (sorteado % 2 == 0) {
+        soma += sorteado
+    } else {
+        multiplicacao *= sorteado
+    }
+}
+
+console.log(`Lista Sorteada: ${lista}`)
+console.log(`Soma dos pares: ${soma}`)
+console.log(`Multiplicação dos ímpares: ${multiplicacao}`)
+
+// 19
+
+let texto = "Sem trocar que o espinho é seco.\n Sem trocar que seco é ser sol.\n Sem trocar que algum espinho seco secará."
+
+let textoAlterado = ""
+let palavras = texto.split(" ")
+
+for (let i = 0; i < palavras.length; i++) {
+    if (palavras[i] == "trocar") {
+        palavras[i] = "sacar"
+    }
+    textoAlterado += palavras[i] + " "
+}
+
+console.log(texto)
+console.log(textoAlterado)

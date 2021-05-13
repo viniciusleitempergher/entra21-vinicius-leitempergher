@@ -10,29 +10,27 @@
 <body>
     <script>
 
-        let lista = [],
-            listaCrescente = [],
-            posicaoMaior = 0
+        // 19) Faça um script que:
+        // a) Crie uma variável com o texto: "Sem trocar que o espinho é seco.\n Sem trocar que seco é ser sol.\n Sem trocar que algum espinho seco secará."
+        // b) Mostre na tela a variável
+        // c) Substitua as palavras "trocar" por "sacar" na String (**NÃO UTILIZAR O MÉTODO REPLACE**)
+        // d) Mostre na tela a String com os valores trocados
 
-        for (let i = 0; i < 10; i++) {
-            let sorteado = +(Math.random() * 100 + 1).toFixed()
-            lista[i] = sorteado
-        }
+        let texto = "Sem trocar que o espinho é seco.\n Sem trocar que seco é ser sol.\n Sem trocar que algum espinho seco secará."
 
-        console.log(`Lista Sorteada: ${lista}`)
+        let textoAlterado = ""
+        let palavras = texto.split(" ")
 
-        for (let l = lista.length - 1; l >= 0; l--) {
-            for (let i = 0; i <= lista.length; i++) {
-                if (lista[posicaoMaior] < lista[i]) {
-                    posicaoMaior = i
-                }
+        for (let i = 0; i < palavras.length; i++) {
+            if (palavras[i] == "trocar") {
+                palavras[i] = "sacar"
             }
-            listaCrescente[l] = lista[posicaoMaior]
-            lista.splice(posicaoMaior, 1)
-            posicaoMaior = 0
+            textoAlterado += palavras[i] + " "
         }
 
-        console.log(`Lista Crescente: ${listaCrescente}`)
+        console.log(texto)
+        console.log(textoAlterado)
+
     </script>
 </body>
 
