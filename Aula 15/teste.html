@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+
+<body>
+
+    <script>
+
+        let matriz = []
+
+        for (let i = 0; i < 3; i++) {
+            matriz[i] = []
+            matriz[i][0] = prompt("Digite o nome do aluno")
+            let soma = 0
+            for (let j = 0; j < 3; j++) {
+                matriz[i][j + 1] = +prompt("Digite a nota")
+                soma += matriz[i][j + 1]
+            }
+            let media = soma / 3
+            matriz[i][4] = media;
+            matriz[i][5] = (media < 6) ? "Reprovado" : "Aprovado"
+        }
+
+
+        let matrizTxt = ""
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 6; j++) {
+                matrizTxt += matriz[i][j] + "\t"
+            }
+            matrizTxt += "\n"
+        }
+
+        console.log(matrizTxt)
+    </script>
+</body>
+
+</html>

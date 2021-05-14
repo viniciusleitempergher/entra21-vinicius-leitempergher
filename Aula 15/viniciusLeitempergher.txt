@@ -1,0 +1,127 @@
+// 1
+
+let matriz = [],
+    maiores = 0
+
+for (let i = 0; i < 3; i++) {
+    matriz[i] = []
+    for (let j = 0; j < 3; j++) {
+        matriz[i][j] = +prompt("Digite um valor")
+        if (matriz[i][j] > 10) maiores++
+    }
+}
+
+console.log(matriz)
+console.log(`Foram digitados ${maiores} números maiores que 10`)
+
+// 2
+
+let matriz = [],
+    matrizTxt = ""
+
+for (let i = 0; i < 5; i++) {
+    matriz[i] = []
+    for (let j = 0; j < 5; j++) {
+        (i == j) ? matriz[i][j] = 1 : matriz[i][j] = 0
+        matrizTxt += matriz[i][j] + "\t"
+    }
+    matrizTxt += "\n"
+}
+console.log(matrizTxt)
+
+// 3
+
+let matriz = []
+
+for (let i = 0; i < 5; i++) {
+    matriz[i] = []
+    for (let j = 0; j < 5; j++) {
+        matriz[i][j] = +prompt("Digite um valor")
+    }
+}
+let busca = +prompt("Digite o valor a ser buscado")
+
+for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
+        if (matriz[i][j] == busca) {
+            console.log(`O valor buscado foi encontrado na linha: ${i} coluna: ${j}`)
+        }
+    }
+}
+
+// 4
+
+let matriz1 = [],
+    matriz2 = []
+
+for (let i = 0; i < 3; i++) {
+    matriz1[i] = []
+    for (let j = 0; j < 3; j++) {
+        matriz1[i][j] = +prompt("Digite um valor para a matriz 1")
+    }
+}
+for (let i = 0; i < 3; i++) {
+    matriz2[i] = []
+    for (let j = 0; j < 3; j++) {
+        matriz2[i][j] = +prompt("Digite um valor para a matriz 2")
+    }
+}
+
+let maior = ""
+
+for (let i = 0; i < 3; i++) {
+    maior[i] = []
+    for (let j = 0; j < 3; j++) {
+        (matriz1[i][j] > matriz2[i][j]) ? maior += matriz1[i][j] : maior += matriz2[i][j]
+        maior += "\t"
+    }
+    maior += "\n"
+}
+
+console.log(maior)
+
+// 5
+
+let matriz = [],
+    soma = 0
+
+
+for (let i = 0; i < 3; i++) {
+    matriz[i] = []
+    for (let j = 0; j < 3; j++) {
+        matriz[i][j] = +prompt("Digite um valor")
+        if (j > i) {
+            soma += matriz[i][j]
+        }
+    }
+}
+
+console.log(`Soma dos valores acima da diagonal principal: ${soma}`)
+
+// 6
+
+let matriz = []
+
+for (let i = 0; i < 3; i++) {
+    matriz[i] = []
+    matriz[i][0] = prompt("Digite o nome do aluno")
+    let soma = 0
+    for (let j = 0; j < 3; j++) {
+        matriz[i][j + 1] = +prompt("Digite a nota")
+        soma += matriz[i][j + 1]
+    }
+    let media = soma / 3
+    matriz[i][4] = media;
+    matriz[i][5] = (media < 6) ? "Reprovado" : "Aprovado"
+}
+
+
+let matrizTxt = ""
+for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 6; j++) {
+        matrizTxt += matriz[i][j] + "\t"
+    }
+    matrizTxt += "\n"
+}
+
+console.log(matrizTxt)
