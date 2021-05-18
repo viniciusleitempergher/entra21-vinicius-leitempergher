@@ -1,0 +1,213 @@
+// 1
+
+console.log(ehPositivo(+prompt("Digite um número")))
+
+function ehPositivo(numero) {
+    return (numero > 0)
+}
+
+// 2
+
+console.log(minimo(+prompt("Digite um número"), +prompt("Digite um número")))
+
+function minimo(n1, n2) {
+    return (n1 < n2) ? n1 : n2
+}
+
+// 3
+
+console.log(potencia(+prompt("Digite um número"), +prompt("Digite um número")))
+
+function potencia(n, p) {
+    return n ** p
+}
+
+// 4
+
+let notas = []
+
+for (let i = 0; i < 3; i++) {
+    notas[i] = +prompt("Digite uma nota")
+}
+
+function media(notas) {
+    let soma = 0
+    for(let i = 0; i < notas.length; i++) {
+        soma += notas[i]
+    }
+    return soma / notas.length
+}
+
+console.log(media(notas))
+
+// 5
+
+let notas = []
+
+for (let i = 0; i < 3; i++) {
+    notas[i] = +prompt("Digite uma nota")
+}
+
+function media(notas) {
+    let soma = 0
+    for(let i = 0; i < notas.length; i++) {
+        soma += notas[i]
+    }
+    return soma / notas.length
+}
+
+function conceito(media) {
+    if (media < 5) {
+        return "D"
+    }
+    if (media < 7) {
+        return "C"
+    }
+    if (media < 9) {
+        return "B"
+    }
+    return "A"
+}
+
+console.log(conceito(media(notas)))
+
+// 6
+
+let altura = +prompt("Digite sua altura")
+let sexo = prompt("Digite o seu sexo(F ou M)").toUpperCase()
+
+try {
+    console.log(pesoIdeal(altura, sexo))
+} catch (e) {
+    console.log(e.mensagem)
+}
+
+function AtributoInvalido(mensagem) {
+    this.nome = "AtributoInvalido"
+    this.mensagem = mensagem
+}
+
+function pesoIdeal(altura, sexo) {
+    if (Number.isNaN(altura)) {
+        throw new AtributoInvalido("Altura inválida informada!")
+    }
+
+    if (sexo == "F") {
+        return (62.1 * altura - 44.7)
+    } else if (sexo == "M") {
+        return (72.7 * altura - 58)
+    } else {
+        throw new AtributoInvalido("Sexo inválido informado!")
+    }
+}
+
+// 7
+
+let lista = []
+
+for (let i = 0; i < 50; i++) {
+    lista[i] = +((Math.random() * 999 + 1).toFixed())
+}
+
+function maior(lista) {
+    let posicaoMaior = 0;
+    for (let i = 0; i < lista.length; i++) {
+        if (lista[posicaoMaior] < lista[i]) {
+            posicaoMaior = i
+        }
+    }
+    return lista[posicaoMaior]
+}
+function menor(lista) {
+    let posicaoMenor = 0;
+    for (let i = 0; i < lista.length; i++) {
+        if (lista[posicaoMenor] > lista[i]) {
+            posicaoMenor = i
+        }
+    }
+    return lista[posicaoMenor]
+}
+
+console.log(`Maior: ${maior(lista)}`)
+console.log(`Menor: ${menor(lista)}`)
+
+// 8
+
+console.log(idadeEmDias(+prompt("Digite os anos"), +prompt("Digite os meses"),
+    +prompt("Digite os dias")))
+
+function idadeEmDias(anos, meses, dias) {
+    dias += anos * 365
+    dias += meses * 31
+    return dias
+}
+
+// 9
+
+console.log(numeroDivisores(+prompt("Digite um número")))
+
+function numeroDivisores(numero) {
+    let quantidade = 0;
+    for (let i = 1; i <= numero; i++) {
+        if (numero % i == 0) { quantidade++ }
+    }
+    return quantidade
+}
+
+// 10
+
+let numero = +prompt("Digite um número")
+
+function fatorial(numero) {
+    let resultado = numero
+    while (numero > 1) {
+        numero--
+        resultado *= numero
+    }
+    return resultado
+}
+
+console.log(`Resultado: ${fatorial(numero)}`)
+
+// 11
+
+console.log(ehPerfeito(+prompt("Digite um número")))
+
+function ehPerfeito(numero) {
+    let soma = 0
+    for (let i = 1; i < numero; i++) {
+        if (numero % i == 0) { soma += i }
+    }
+    return (soma == numero)
+}
+
+// 12
+
+let lista = []
+
+for (let i = 0; i < 50; i++) {
+    lista[i] = +((Math.random() * 999 + 1).toFixed())
+}
+
+function decrescente(lista) {
+    let crescente = lista.sort((a, b) => (a - b))
+    let decrescente = crescente.reverse()
+    return decrescente
+}
+console.log(lista)
+console.log(decrescente(lista))
+
+// 13
+
+console.log(bhaskara(+prompt("Digite o valor de A"),
+    +prompt("Digite o valor de B"), +prompt("Digite o valor de C")))
+
+function bhaskara(a, b, c) {
+    delta = b ** 2 - 4 * a * c
+    if (delta < 0) { return (`Delta ${delta}, impossível calcular`) }
+
+    let raiz1 = (-b + Math.sqrt(delta)) / (2 * a)
+    let raiz2 = (-b - Math.sqrt(delta)) / (2 * a)
+
+    return `X\' = ${raiz1.toFixed(2)} X\'\' = ${raiz2.toFixed(2)}`
+}

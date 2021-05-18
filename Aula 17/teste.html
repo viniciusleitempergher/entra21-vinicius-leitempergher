@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+
+<body>
+    <script>
+        let altura = +prompt("Digite sua altura")
+        let sexo = prompt("Digite o seu sexo(F ou M)").toUpperCase()
+
+        try {
+            console.log(pesoIdeal(altura, sexo))
+        } catch (e) {
+            console.log(e.mensagem)
+        }
+
+        function AtributoInvalido(mensagem) {
+            this.nome = "AtributoInvalido"
+            this.mensagem = mensagem
+        }
+
+        function pesoIdeal(altura, sexo) {
+            if (Number.isNaN(altura)) {
+                throw new AtributoInvalido("Altura inválida informada!")
+            }
+
+            if (sexo == "F") {
+                return (62.1 * altura - 44.7)
+            } else if (sexo == "M") {
+                return (72.7 * altura - 58)
+            } else {
+                throw new AtributoInvalido("Sexo inválido informado!")
+            }
+        }
+
+    </script>
+</body>
+
+</html>
