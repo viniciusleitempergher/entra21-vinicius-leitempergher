@@ -1,0 +1,91 @@
+// 1
+
+let lista = [1, 2, 3, 4]
+
+let getExtremos = lista => [lista[0], lista[lista.length - 1]]
+
+console.log(getExtremos(lista))
+
+// 2
+
+function retornaHash(quantidade) {
+    let txt = ""
+    for (let i = 0; i < quantidade; i++) {
+        txt += "#"
+    }
+    return txt
+}
+
+console.log(retornaHash(4))
+
+// 3
+
+function repeteElemento(elemento, quantidade) {
+    let retorno = []
+    for(let i = 0; i < quantidade; i++) {
+        retorno[i] = elemento
+    }
+    return retorno
+}
+
+console.log(repeteElemento("Olá mundo", 3))
+
+// 4
+
+function getIdade(anoNascimento) {
+    let anoAtual = new Date().getFullYear()
+    return anoAtual - anoNascimento
+}
+
+console.log(getIdade(2004))
+
+// 5
+
+function modificaVetor(vetor) {
+    vetor[1] = 10
+    vetor[2] = 30
+    return vetor
+}
+
+let vetor = [1, 2, 3, 4]
+
+console.log(modificaVetor(vetor.slice()))
+console.log(vetor)
+
+// 6
+
+function getPares(vetor) {
+    let pares = [],
+        controle = 0
+    for (let i = 0; i < vetor.length; i++) {
+        if (vetor[i] % 2 == 0 && i % 2 == 0) {
+            pares[controle++] = vetor[i]
+        }
+    }
+    return pares
+}
+
+let vetor = [2, 2, 3, 4, 4, 6, 2]
+console.log(getPares(vetor))
+
+// 7
+
+function semSentido(numero) {
+    let aleatorio = (Math.random() * 9 + 1).toFixed()
+    return (numero == aleatorio) ? `Parabéns! Número sorteado: ${aleatorio}` :
+        `Que pena! O número sorteado foi o ${aleatorio}`
+}
+
+console.log(semSentido(+prompt("Digite um número")))
+
+// 8
+
+let ehBissexto = (ano) => (ano % 4 == 0 && (ano % 100 != 0 || ano % 400 == 0)) ? true : false
+
+let ano = +prompt("Digite um ano")
+
+if (ehBissexto(ano)) {
+    console.log(`O ano ${ano} é bissexto`)
+} else {
+    console.log(`O ano ${ano} não é bissexto`)
+}

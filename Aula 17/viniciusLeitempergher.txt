@@ -88,6 +88,7 @@ function AtributoInvalido(mensagem) {
 }
 
 function pesoIdeal(altura, sexo) {
+    // Object.is(altura, Number)
     if (Number.isNaN(altura)) {
         throw new AtributoInvalido("Altura inválida informada!")
     }
