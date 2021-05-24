@@ -15,6 +15,12 @@
 **git checkout** // Manipula as linhas do tempo
 **git reset** // Voltar para um ponto na linha do tempo
 **git merge** // Unir as linhas do tempo
+**git config --global user.name "Vinícius Gabriel Leitempergher"**
+
+**git branch -d "nome"** // Deletar branch
+**git branch -m "nome"** // Renomear branch atual
+
+**git push origin bug/1** // Dar push em outra branch
 
 **fork** // Criar uma bifurcação de um repositório
 *Como usar:* https://docs.github.com/pt/github/getting-started-with-github/quickstart/fork-a-repo
