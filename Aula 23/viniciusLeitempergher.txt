@@ -1,0 +1,53 @@
+// Métodos Number Exercícios
+
+// 1
+
+function lerNumero() {
+    while (true) {
+        if (isFinite(prompt("Digite um número"))) {
+            return
+        }
+    }
+}
+
+// 2
+
+function random(minimo, maximo) {
+    return Math.floor(Math.random() * (maximo + 1 - minimo)) + minimo;
+}
+
+// Métodos String Exercícios
+
+// 1
+
+function captalize(string) {
+    let end
+    string = string.split(" ")
+
+    for (let i = 0; i < string.length; i++) {
+        end = string[i].substring(1)
+        string[i] = string[i].charAt(0).toUpperCase() + end
+    }
+
+    return string.join(' ')
+}
+
+// 2
+
+function checaSpam(string) {
+    return (string.includes("jequiti") || string.includes("day trading")) ? true : false
+}
+
+// 3
+
+function truncar(string, maximo) {
+    if (string.length > 10) {
+        string = string.substring(10, 0) + "..."
+    }
+    return string
+}
+
+// Métodos Array Exercícios
+
+// 1
+
