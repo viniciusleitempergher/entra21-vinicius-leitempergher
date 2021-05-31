@@ -1,0 +1,98 @@
+// Exercícios objetos:
+
+// 1
+
+function estaVazio(object) {
+    return (typeof object == "object") ? true : false
+}
+
+// 2
+
+function somaAtributos(objeto) {
+    let acumulador = 0
+    for (o in objeto) {
+        if (isFinite(objeto[o])) {
+            acumulador += +objeto[o]
+        }
+    }
+    return acumulador
+}
+
+// 3
+
+let alunos = []
+
+let opcoes = "1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar alunos\n0) Sair"
+
+lacoPrincipal:
+while (true) {
+    switch (+prompt("Escolha uma opção: \n" + opcoes)) {
+        case 0:
+            break lacoPrincipal;
+        case 1:
+            let matricula = prompt("Digite a matrícula do aluno")
+            if (pesquisarMatricula(matricula)) {
+                alert("Já existe um aluno com esta matrícula!")
+            } else {
+                alunos.push(criarAluno(prompt("Digite o nome do aluno"), matricula))
+            }
+            break
+        case 2:
+            if (pesquisarMatricula(prompt("Digite a matrícula"))) {
+                aluno.editar(prompt("Digite o novo nome do aluno"))
+            } else {
+                alert("Nenhum aluno com essa matrícula foi encontrado!")
+            }
+            break
+        case 3:
+            if (pesquisarMatricula(prompt("Digite a matrícula"))) {
+                let notas = [+prompt("Digite a nota 1"), +prompt("Digite a nota 2"), +prompt("Digite a nota 3")]
+                aluno.cadastrarNotas(notas)
+            } else {
+                alert("Nenhum aluno com essa matrícula foi encontrado!")
+            }
+            break
+        case 4:
+            listarAlunos()
+            alert("Veja no console")
+            break
+    }
+}
+
+function pesquisarMatricula(pesquisa) {
+    for (let i = 0; i < alunos.length; i++) {
+        if (alunos[i].matricula == pesquisa) {
+            return aluno = alunos[i]
+        }
+    }
+    return false
+}
+
+function criarAluno(nome, matricula) {
+    return {
+        nome,
+        matricula,
+        nota1: undefined,
+        nota2: undefined,
+        nota3: undefined,
+        media: undefined,
+
+        editar(nome) {
+            this.nome = nome
+        },
+
+        cadastrarNotas(notas) {
+            this.nota1 = notas[0]
+            this.nota2 = notas[1]
+            this.nota3 = notas[2]
+            this.media = ((notas[0] + notas[1] + notas[2]) / 3).toFixed(2)
+        }
+    }
+}
+
+function listarAlunos() {
+    console.table(alunos)
+}
+
+// Exercícios métodos objetos:
+
