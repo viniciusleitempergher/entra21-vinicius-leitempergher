@@ -1,0 +1,27 @@
+* {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #40404a;
+}
+
+.titulo {
+    color: #dbf6a1;
+}
+
+.texto {
+    color: #daf3de;
+}
+
+strong {
+    color: #dbf6a1;
+}
+
+.fonte {
+    color: #ffffff;
+}
+
+a {
+    color: #dbf6a1;
+}
