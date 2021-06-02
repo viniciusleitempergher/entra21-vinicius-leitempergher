@@ -1,0 +1,26 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+    text-align: center;
+    width: 600px;
+}
+
+td, th {
+    padding: 5px;
+    width: 300px;
+}
+
+thead th {
+    background-color: #098575;
+    color: white;
+}
+
+tbody th {
+    background-color: #94c3bd;
+}
+
+tbody td {
+    background-color: #c7ded9;
+}

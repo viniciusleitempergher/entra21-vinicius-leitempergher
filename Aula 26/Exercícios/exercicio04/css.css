@@ -1,0 +1,18 @@
+table, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.cinza {
+    background-color: lightgray;
+    font-weight: 100;
+}
+
+.verde {
+    background-color: #1dfe9f;
+    margin: 0;
+}
+
+.verdescuro {
+    background-color: #08807f;
+}
