@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+a, p, h2, h3 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+    font-size: 2.25em;
+    margin: 0 0 1.1em 0;
+    line-height: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url(imgs/background.png);
+}
+
+.wrapper {
+    width: 80%;
+    margin: 5% 10%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+#logo h1 {
+    background: #ff4486;
+    font-weight: 400;
+    padding: 0.15em 0.2em;
+    border-radius: 6px;
+    font-size: 3.25em;
+    letter-spacing: 0.05em;
+    display: inline-block;
+}
+
+#logo a {
+    color: white;
+    font-family: 'Oleo Script', serif;
+}
+
+#logo span {
+    font-weight: 800;
+    line-height: 4.5em;
+    letter-spacing: 0.025em;
+    font-size: 0.9em;
+    vertical-align: middle;
+    margin: 0 0 0 1.25em;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(107, 107, 107);
+    display: inline-block;
+}
+
+nav ul{
+    list-style: none;
+    display: inline-block;
+    align-items: flex-end;
+    justify-items: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li:first-child a {
+    background-color: rgb(82, 82, 82);
+    color: white;
+}
+
+nav ul li a {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: rgb(114, 114, 114);
+}
+
+nav ul li a:hover {
+    background-color: white;
+}
+
+nav ul li ul {
+    display: none;
+}
+
+.banner {
+    padding: 4.5em;
+    background-color: white;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.banner h2 {
+    font-size: 3.5em;
+    margin: 0.1em 0 0.35em 0;
+}
+
+.banner p {
+    font-size: 2.75em;
+    line-height: 1.35em;
+    margin: 0;
+}
+
+.banner__column {
+    width: 50%;
+}
+
+.banner__column2 {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.banner__column2 a {
+    display: inline-block;
+    padding: 0.8em 0.9em;
+    border: 1px solid black;
+    font-size: 2.25em;
+    border-radius: 5px;
+}
