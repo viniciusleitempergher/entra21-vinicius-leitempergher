@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Oleo+Script:400|Open+Sans:300,300italic,600,600italic,800');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+ul, li {
+    padding: 0;
+}
+
 a, p, h2, h3 {
     font-family: 'Open Sans', sans-serif;
 }
@@ -9,6 +13,11 @@ h2 {
     font-size: 2.25em;
     margin: 0 0 1.1em 0;
     line-height: 1em;
+    color: rgb(66, 66, 66);
+}
+
+p {
+    color: rgb(63, 63, 63);
 }
 
 a {
@@ -64,24 +73,28 @@ header {
     display: inline-block;
 }
 
-nav ul{
+.menu {
     list-style: none;
     display: inline-block;
     align-items: flex-end;
     justify-items: center;
 }
 
-nav ul li {
+.menu__item {
     display: inline-block;
     margin: 0 15px;
 }
 
-nav ul li:first-child a {
+.menu__item:first-child a {
+    background-color: rgb(82, 82, 82);
+    color: white;
+}
+.menu__item:first-child a:hover {
     background-color: rgb(82, 82, 82);
     color: white;
 }
 
-nav ul li a {
+.menu__item > a {
     padding: 10px 20px;
     margin: 0 5px;
     border-radius: 10px;
@@ -89,12 +102,41 @@ nav ul li a {
     color: rgb(114, 114, 114);
 }
 
-nav ul li a:hover {
+.menu__item > a:hover {
     background-color: white;
 }
 
-nav ul li ul {
+.menu__item ul {
     display: none;
+}
+
+.dropdownbutton:hover .dropdown {
+    display: flex;
+    align-items: flex-start;
+    
+    flex-direction: column;
+    position: absolute;
+}
+
+.dropdownbutton:hover {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.dropdown {
+    width: 200px;
+    margin-top: 25px;
+    list-style: none;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.dropdown__item a {
+    display: block;
+    padding: 10px 0 10px 25px;
+    font-size: .8rem;
+    width: 175px;
+    border-top: 1px solid rgb(199, 199, 199);
 }
 
 .banner {
@@ -117,18 +159,30 @@ nav ul li ul {
 }
 
 .banner__column {
-    width: 50%;
+    width: 600px;
 }
 
 .banner__column2 {
     display: flex;
     flex-flow: column wrap;
+    width: 30%;
 }
 
 .banner__column2 a {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
     padding: 0.8em 0.9em;
-    border: 1px solid black;
     font-size: 2.25em;
     border-radius: 5px;
+    font-weight: 900;
+}
+
+.banner__button1 {
+    background: #0090c5;
+    color: #fff;
+}
+
+.banner__button2 {
+    background-color: rgb(236, 236, 236);
+    color: rgb(73, 73, 73);
 }
