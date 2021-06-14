@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strata</title>
     <script src="https://kit.fontawesome.com/2301278610.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="css.css">
 </head>
 
 <body>
-    <header>
-        <img src="images/avatar.jpg" alt="">
-        <h1>
-            I am Strata, a super simple
+    <header class="header">
+        <img src="imgs/avatar.jpg" alt="" class="header__img">
+        <h1 class="header__h1">
+            <a href="#" class="header__a">I am Strata</a>, a super simple
             responsive site template freebie
             crafted by Vinícius.
         </h1>
     </header>
-    <main>
+    <main class="main">
         <section>
             <h2>
                 Ipsum lorem dolor aliquam ante commodo magna sed accumsan arcu neque.
@@ -28,7 +30,7 @@
                 pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem
                 semper nunc nisi lorem vulputate lorem neque cubilia.
             </p>
-            <a href="">Learn More</a>
+            <a href="" class="button">Learn More</a>
             <hr>
         </section>
 
@@ -64,7 +66,7 @@
                 <h3>Risus ornare lacinia</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
-            <a href="">Full Portfolio</a>
+            <a href="" class="button">Full Portfolio</a>
             <hr>
 
             <div>
@@ -72,40 +74,42 @@
                 <p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id
                     eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
 
-                <form action="" method="post">
-                    <div><input type="text" name="name"></div>
-                    <div><input type="text" name="email"></div>
-                    <div><input type="text" name="message"></div>
-                    <div><input type="submit" value="Send Message"></div>
+                <form action="" method="post" class="form">
+                    <div class="form__item"><input type="text" name="name" placeholder="Name"></div>
+                    <div class="form__item"><input type="text" name="email" placeholder="Email"></div>
+                    <div class="form__item"><textarea name="message" placeholder="Message"></textarea></div>
+                    <div class="form__item"><input type="submit" value="Send Message" class="button"></div>
                 </form>
-                <ul>
-                    <li>
-                        <h3><i class="fas fa-address-card"></i> Address</h3>
-                        1234 Somewhere Rd.<br>
-                        Nashville, TN 00000<br>
-                        United States
+                <ul class="address">
+                    <li class="adress__item">
+                        <h3><i class="fas fa-address-card"></i></h3>
+                        <p>
+                            1234 Somewhere Rd.<br>
+                            Nashville, TN 00000<br>
+                            United States
+                        </p>
                     </li>
-                    <li>
-                        <h3><i class="fas fa-mobile-alt"></i> Phone</h3>
-                        000-000-0000
+                    <li class="adress__item">
+                        <h3><i class="fas fa-mobile-alt"></i></h3>
+                        <p>000-000-0000</p>
                     </li>
-                    <li>
-                        <h3><i class="fas fa-envelope"></i> Email</h3>
-                        <a href="#">hello@untitled.tld</a>
+                    <li class="adress__item">
+                        <h3><i class="fas fa-envelope"></i></h3>
+                        <p>hello@untitled.tld</p>
                     </li>
                 </ul>
             </div>
         </section>
     </main>
 
-    <footer>
-        <ul>
-            <li><a href="#"><i class="fab fa-twitter"></i> </a></li>
-            <li><a href="#"><i class="fab fa-github"></i></a></li>
-            <li><a href="#"><i class="fas fa-basketball-ball"></i></a></li>
-            <li><a href="#"><i class="fas fa-envelope"></i></a></li>
+    <footer class="footer">
+        <ul class="footer__redes">
+            <li class="redes__item"><a href="#"><i class="fab fa-twitter"></i> </a></li>
+            <li class="redes__item"><a href="#"><i class="fab fa-github"></i></a></li>
+            <li class="redes__item"><a href="#"><i class="fas fa-basketball-ball"></i></a></li>
+            <li class="redes__item"><a href="#"><i class="fas fa-envelope"></i></a></li>
         </ul>
-        <section>
+        <section class="footer__copyright">
             <p>© Vinícius Gabriel Leitempegher ©</p>
             <p>Todos os direitos reservados</p>
         </section>

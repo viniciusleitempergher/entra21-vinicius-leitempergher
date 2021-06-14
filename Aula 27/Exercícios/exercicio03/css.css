@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+html {
+    font-size: 15px;
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    color: rgb(117, 117, 117);
+}
+
+h1, h2 {
+    font-size: 1.5rem;
+    line-height: 1.5em;
+}
+
+p {
+    color: rgb(189, 189, 189);
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+}
+
+.header {
+    background-image: url(imgs/overlay.png), url(imgs/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 2.5em 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.header__a {
+    color: white;
+    text-decoration: none;
+}
+
+.header__img {
+    border-radius: 50%;
+}
+
+.header__h1 {
+    width: 90%;
+    line-height: 3rem;
+}
+
+.main {
+    padding: 1.5em;
+    display: grid;
+}
+
+.main img {
+    width: 100%;
+    border-radius: 2.5%;
+}
+
+.button {
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    border: 2px solid rgb(226, 226, 226);
+    color: rgb(87, 87, 87);
+    margin: 50px 0;
+    background: none;
+}
+
+.button[type="submit"] {
+    width: 100%;
+}
+
+hr {
+    border-color: rgba(189, 189, 189, 0.226);
+    margin: 50px 0;
+}
+
+.form {
+    display: grid;
+}
+
+.form__item > input[type="text"], .form__item > textarea {
+    border: none;
+    background-color: rgba(216, 216, 216, 0.198);
+    margin: 0.3em 0;
+    padding: 1em;
+    border-radius: 5px;
+    width: calc(100% - 1.8em);
+}
+
+.address {
+    list-style: none;
+    padding: 0;
+}
+
+.adress__item {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.adress__item h3{
+    display: inline-block;
+}
+
+.adress__item p {
+    display: inline-block;
+}
+
+.adress__item i {
+    color: rgb(189, 189, 189);
+}
+
+.footer__redes {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    padding: 0 20%;
+}
+
+.footer__redes a {
+    color: rgb(189, 189, 189);
+}
+
+.redes__item i {
+    font-size: 2rem;
+}
+
+.footer__copyright {
+    text-align: center;
+}
+
+.footer {
+    padding: 60px 0;
+    background-image: url(imgs/overlay.png), url(imgs/bg.jpg);
+    background-size: cover;
+    background-position: center bottom;
+}
