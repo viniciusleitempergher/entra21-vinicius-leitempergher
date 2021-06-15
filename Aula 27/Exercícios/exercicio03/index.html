@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strata</title>
+    <link rel="shortcut icon" href="imgs/avatar.jpg" type="image/x-icon">
     <script src="https://kit.fontawesome.com/2301278610.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../normalize.css">
     <link rel="stylesheet" href="css.css">
@@ -12,12 +13,24 @@
 
 <body>
     <header class="header">
-        <img src="imgs/avatar.jpg" alt="" class="header__img">
-        <h1 class="header__h1">
-            <a href="#" class="header__a">I am Strata</a>, a super simple
-            responsive site template freebie
-            crafted by Vinícius.
-        </h1>
+        <div>
+            <img src="imgs/avatar.jpg" alt="" class="header__img">
+            <h1 class="header__h1">
+                <a href="#" class="header__a">I am Strata</a>, a super simple
+                responsive site template freebie
+                crafted by Vinícius.
+            </h1>
+        </div>
+        <footer class="footer2">
+            <ul class="footer2__redes">
+                <li class="footer2__redes__item"><a href="#"><i class="fab fa-twitter"></i> </a></li>
+                <li class="footer2__redes__item"><a href="#"><i class="fab fa-github"></i></a></li>
+                <li class="footer2__redes__item"><a href="#"><i class="fas fa-basketball-ball"></i></a></li>
+                <li class="footer2__redes__item"><a href="#"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+            <p class="footer2__p">© Vinícius Gabriel Leitempegher ©</p>
+            <p class="footer2__p">All rights reserved</p>
+        </footer>
     </header>
     <main class="main">
         <section>
@@ -34,72 +47,82 @@
             <hr>
         </section>
 
-        <section>
-            <h2>Recent Work</h2>
-            <article>
+        <section class="section2">
+            <h2 class="section2__item">Recent Work</h2>
+            <article class="section2__item">
                 <a href=""><img src="imgs/01.jpg" alt=""></a>
                 <h3>Magna sed consequat tempus</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
-            <article>
+            <article class="section2__item">
                 <a href=""><img src="imgs/01.jpg" alt=""></a>
                 <h3>Ultricies lacinia interdum</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
-            <article>
+            <article class="section2__item">
                 <a href=""><img src="imgs/01.jpg" alt=""></a>
                 <h3>Tortor metus commodo</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
-            <article>
+            <article class="section2__item">
                 <a href=""><img src="imgs/01.jpg" alt=""></a>
                 <h3>Quam neque phasellus</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
-            <article>
+            <article class="section2__item">
                 <a href=""><img src="imgs/01.jpg" alt=""></a>
                 <h3>Nunc enim commodo aliquet</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
-            <article>
+            <article class="section2__item">
                 <a href=""><img src="imgs/01.jpg" alt=""></a>
                 <h3>Risus ornare lacinia</h3>
                 <p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
             </article>
             <a href="" class="button">Full Portfolio</a>
             <hr>
+        </section>
 
-            <div>
+        <section class="section3">
+            <div class="section3__item" id="section3__primeiro">
                 <h2>Get In Touch</h2>
                 <p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id
                     eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+            </div>
+            <form action="" method="post" class="form section3__item">
+                <div class="form__item"><input type="text" name="name" placeholder="Name"></div>
+                <div class="form__item"><input type="text" name="email" placeholder="Email"></div>
+                <div class="form__item" id="message"><textarea name="message" placeholder="Message"></textarea></div>
+                <div class="form__item"><input type="submit" value="Send Message" class="button"></div>
+            </form>
+            <div>
 
-                <form action="" method="post" class="form">
-                    <div class="form__item"><input type="text" name="name" placeholder="Name"></div>
-                    <div class="form__item"><input type="text" name="email" placeholder="Email"></div>
-                    <div class="form__item"><textarea name="message" placeholder="Message"></textarea></div>
-                    <div class="form__item"><input type="submit" value="Send Message" class="button"></div>
-                </form>
-                <ul class="address">
-                    <li class="adress__item">
-                        <h3><i class="fas fa-address-card"></i></h3>
-                        <p>
-                            1234 Somewhere Rd.<br>
-                            Nashville, TN 00000<br>
-                            United States
-                        </p>
+                <ul class="fa-ul">
+                    <li>
+                        <span class="fa-li">
+                            <i class="fas fa-address-card"></i>
+
+                        </span>
+                        1234 Somewhere Rd. <br>
+                        Nashville, TN 00000 <br>
+                        United States
                     </li>
-                    <li class="adress__item">
-                        <h3><i class="fas fa-mobile-alt"></i></h3>
-                        <p>000-000-0000</p>
+                    <li>
+                        <span class="fa-li">
+                            <i class="fas fa-mobile-alt"></i>
+                        </span>
+                        000-000-0000
                     </li>
-                    <li class="adress__item">
-                        <h3><i class="fas fa-envelope"></i></h3>
-                        <p>hello@untitled.tld</p>
+                    <li>
+                        <span class="fa-li">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        hello@untitled.tld
                     </li>
                 </ul>
             </div>
         </section>
+
     </main>
 
     <footer class="footer">
