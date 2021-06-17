@@ -251,3 +251,13 @@ hr {
         font-weight: 400;
     }
 }
+
+@media screen and (min-width: 1800px) {
+    html {
+        font-size: 23px;
+    }
+    .footer2__redes {
+        width: 300px;
+    }
+    
+}

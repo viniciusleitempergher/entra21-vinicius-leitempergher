@@ -33,15 +33,11 @@ ul {
 }
 
 .section {
-    z-index: -1;
     background-color: rgba(0, 0, 0, 0.383);
-    width: 30%;
-    position: absolute;
-    top:0;
-    height: 100%;
+    width: calc(30% * 100vw);
+    height: 100vh;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    
 }
 .section__text {
     text-align: justify;
@@ -50,6 +46,7 @@ ul {
 .section__button {
     display: inline-block;
     padding: 1em 2.5em;
+    margin-bottom: 1em;
     background-color: var(--cor-global);
     color: black;
     width: max-content;
@@ -92,10 +89,10 @@ h1 {
 }
 
 .nav {
-    
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
+    grid-template-columns: 1fr 1fr;
 }
 .navbar {
     display: flex;
@@ -121,28 +118,57 @@ h1 {
     font-size: 1.5rem;
 }
 
-.lugares {
+.button {
     position: absolute;
-    left: 40%;
-    bottom: 50px;
+    bottom: 2.5rem;
+    font-size: 6rem;
 }
-.lugares__item {
+.button__previous {
+    left: 65%;
+    transform: translateX(-80%);
+}
+.button__next {
+    left: 65%;
+    transform: translateX(80%);
+}
+
+.nav__slider {
+    grid-column: 1/3;
+}
+.nav__slider a {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--cor-global);
+    border-radius: 50%;
+}
+
+.conteudos {
+    overflow: hidden;
+}
+
+#button__previous__ultimo {
     display: inline-block;
-    width: 200px;
-    height: 200px;
-    background-image: url("img/bg.jpg");
-    background-size: cover;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
 }
-.lugares__item:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    transform: translateY(-10px);
+
+.button {
+    display: none;
 }
-.lugares__item h3 {
-    text-align: center;
-    font-weight: 400;
+
+#cidade1:target ~ #tela1__button {
+    display: block;
 }
-.lugar__item__selected {
-    transform: translateY(-10px);
+#cidade2:target ~ #tela2__button {
+    display: block;
+}
+#cidade3:target ~ #tela3__button {
+    display: block;
+}
+#cidade4:target ~ #tela4__button {
+    display: block;
+}
+#cidade5:target ~ #tela5__button {
+    display: block;
 }
