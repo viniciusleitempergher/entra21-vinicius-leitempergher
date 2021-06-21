@@ -109,6 +109,7 @@ img.main__item__conteudo {
     width: 100vw;
     height: 100vh;
     top: 0;
+    bottom: 0;
     left: 0;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.274);
@@ -118,6 +119,8 @@ img.main__item__conteudo {
 }
 .main__item__precos:target {
     display: flex;
+    animation-name: aparecer;
+    animation-duration: 1s;
 }
 .main__item__precos table {
     border-radius: 5px;
@@ -125,6 +128,15 @@ img.main__item__conteudo {
 }
 .main__item__precos table td, .main__item__precos table th {
     padding: 5px;
+}
+
+@keyframes aparecer {
+    from {
+        transform: scale(10%);
+    }
+    to {
+        transform: scale(100%);
+    }
 }
 
 @media screen and (min-width: 800px) {
