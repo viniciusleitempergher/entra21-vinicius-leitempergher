@@ -1,0 +1,24 @@
+// Diga como acessar:
+
+// 1. A <table> com o id="age-table".
+console.log(document.querySelector("#age-table"))
+
+// 2. Todos os elementos <label> dentro da <table> (3 elementos).
+console.log(document.querySelectorAll("table label"))
+
+// 3. O primeiro <td> na tabela (com a palavra "Age").
+console.log(document.querySelector("table td"))
+
+// 4. O <form> com name="search".
+console.log(document.querySelector("form[name='search']"))
+
+// 5. O primeiro <input> nesse form.
+let inputs = document.querySelectorAll("form[name='search'] input")
+console.log(inputs.item(0))
+
+// 6. O último <input> nesse form.
+console.log(inputs.item(inputs.length - 1))
+
+
+
+

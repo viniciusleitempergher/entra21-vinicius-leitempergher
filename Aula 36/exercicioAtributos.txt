@@ -1,0 +1,23 @@
+Torne a cor dos links externos em laranja.
+Um link é considerado externo quando:
+1. O atributo href tem ://
+2. Não começa com http://internal.com
+
+// Selecionando um link
+let link = document.querySelector('a');
+
+// Aplicando a cor laranja
+link.style.color = 'orange';
+*/
+
+let links = document.querySelectorAll("a")
+
+for (link of links) {
+    if (link.hasAttribute("href") && link.getAttribute("href").includes("://") && !link.getAttribute("href").includes("://internal.com")) {
+        link.style.color = "orange"
+    }
+}
+
+// Outro jeito interessante de selecionar:
+
+document.querySelectorAll("a[href*='://']:not(a[href^='http://internal.com'])")

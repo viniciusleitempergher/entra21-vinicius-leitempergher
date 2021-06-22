@@ -1,0 +1,23 @@
+// 1
+
+function clear(elm) {
+    let elm2 = elm.cloneNode(false)
+    elm.before(elm2)
+    elm.remove()
+}
+
+// 2
+
+document.querySelector("li").insertAdjacentHTML("afterend", "<li>Item 2</li><li>Item 3</li>")
+
+// 3
+
+let lista = document.querySelector("ul")
+
+let lis = lista.querySelectorAll("li")
+
+for (li of lis) {
+    if (li.querySelectorAll("li").length > 0) {
+        li.firstChild.data += ` - ${li.querySelectorAll("li").length}`
+    }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+
+<body>
+    <ul>
+        <li>Animais
+            <ul>
+                <li>Mamíferos
+                    <ul>
+                        <li>Vacas</li>
+                        <li>Macacos</li>
+                        <li>Cachorros</li>
+                        <li>Tigres</li>
+                    </ul>
+                </li>
+                <li>Outros
+                    <ul>
+                        <li>Cobras</li>
+                        <li>Pássaros</li>
+                        <li>Lagartos</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+
+        let lista = document.querySelector("ul")
+
+        let lis = lista.querySelectorAll("li")
+
+        for (li of lis) {
+            if (li.querySelectorAll("li").length > 0) {
+                li.firstChild.data += ` - ${li.querySelectorAll("li").length}`
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
