@@ -12,18 +12,20 @@
 
     <script>
 
-        notificar(criaObjeto())
+        notificar(criaStyle())
 
         function notificar(styleObj) {
             let div = document.createElement("div")
             div.className = "notificacao"
 
-            div.style = styleObj
+            div.style.top = styleObj.top
+            div.style.right = styleObj.right
+            div.textContent = styleObj.html
 
             document.body.prepend(div)
         }
 
-        function criaObjeto(top = "10px", right = "10px", html = "Olá") {
+        function criaStyle(top = "10px", right = "10px", html = "Olá") {
             return {
                 top,
                 right,
