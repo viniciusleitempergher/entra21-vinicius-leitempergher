@@ -1,0 +1,90 @@
+// Exercicio Tamanho Elemento
+
+let alturaCampo = document.querySelector(".campo").clientHeight
+let larguraCampo = document.querySelector(".campo").clientWidth
+
+let alturaBola = document.querySelector(".bola").clientHeight
+let larguraBola = document.querySelector(".bola").clientWidth
+
+document.querySelector(".bola").style.top = (alturaCampo / 2) - alturaBola /2 + "px"
+document.querySelector(".bola").style.left = (larguraCampo / 2) - larguraBola /2 + "px"
+
+// Exercicio Coordenadas
+
+function mostraLegenda(elm, pos, txt) {
+    let coord = elm.getBoundingClientRect()
+
+    let div = document.createElement("div")
+    div.textContent = txt;
+
+    document.body.prepend(div)
+
+    
+    div.style.position = "absolute";
+    div.style.diplay = "block";
+    div.style.height = "30px";
+
+    if (pos.toLowerCase() == "abaixo") {
+        div.style.top = coord.bottom + "px";
+    } else if (pos.toLowerCase() == "direita") {
+        div.style.left = coord.right + "px"
+    } else if (pos.toLowerCase() == "esquerda") {
+        div.style.right = coord.left + elm.clientWidth + "px"
+    } else if (pos.toLowerCase() == "acima") {
+        div.style.top = coord.top - div.clientHeight + "px"
+    }
+}
+
+mostraLegenda(document.querySelector("#div-legenda"), "acima", "Olá!!")
+mostraLegenda(document.querySelector("#div-legenda"), "abaixo", "Olá!!")
+mostraLegenda(document.querySelector("#div-legenda"), "esquerda", "Olá!!")
+mostraLegenda(document.querySelector("#div-legenda"), "direita", "Olá!!")
+
+// Exercício Eventos Navegador
+
+document.querySelector(".campo").addEventListener("click", posicionarBola)
+
+function posicionarBola(e) {
+    let bola = document.querySelector(".bola")
+    let campo = document.querySelector(".campo")
+
+    let coordenadas = bola.getBoundingClientRect()
+    let tX = e.clientX - coordenadas.left - bola.clientHeight
+    let tY = e.clientY - coordenadas.top - bola.clientWidth
+
+    bola.animate([
+        { transform: `translate(${-tX}px, ${-tY}px)` },
+        { transform: `translate(${0}px, ${0}px)` }
+    ], {
+        duration: 500,
+    })  
+
+    bola.style.top = e.clientY - bola.clientHeight + "px"
+    bola.style.left = e.clientX - bola.clientWidth + "px"
+}
+
+// Exercícios Event Delegation
+
+// 1
+
+let div = document.querySelector("#container")
+
+div.addEventListener("click", (event) => {
+    let target = event.target
+
+    if (target.className != "remove-button") return;
+
+    target.parentNode.style.display = "none"
+})
+
+// 2
+
+let div = document.querySelector(".tree")
+
+div.addEventListener("click", (event) => {
+    let target = event.target.closest("li")
+
+    for (child of target.children) {
+        child.style.display = "none"
+    }
+})
