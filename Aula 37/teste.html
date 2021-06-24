@@ -37,8 +37,8 @@
             let campo = document.querySelector(".campo")
 
             let coordenadas = bola.getBoundingClientRect()
-            let tX = e.clientX - coordenadas.left - bola.clientHeight
-            let tY = e.clientY - coordenadas.top - bola.clientWidth
+            let tX = e.clientX - coordenadas.left - bola.clientWidth/2
+            let tY = e.clientY - coordenadas.top - bola.clientHeight/2
 
             bola.animate([
                 { transform: `translate(${-tX}px, ${-tY}px)` },
