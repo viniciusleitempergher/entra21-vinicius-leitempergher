@@ -1,0 +1,15 @@
+// Exercicio Eventos Mouse
+
+let ul = document.querySelector("ul")
+ul.addEventListener("click", (event) => {
+    let target = event.target.closest("li")
+    console.log(event)
+
+    if (!event.ctrlKey) {
+        for (child of ul.children) {
+            child.style.backgroundColor = "#fff"
+        }
+    }
+    target.style.backgroundColor = "#babaca"
+})
+
