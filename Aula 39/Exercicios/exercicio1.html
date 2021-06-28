@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Form validation: Tarefa 1</title>
+    <style>
+        body {
+            color: #333;
+            font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+            padding: 1em;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Envie seu comentário</h2>
+    <form>
+        <ul>
+            <li>
+                <label for="uname">Nome de usuário</label>
+                <input type="text" name="uname" id="uname" minlength="5" maxlength="20" required>
+            </li>
+            <li>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+            </li>
+            <li>
+                <label for="phone">Telefone:</label>
+                <input type="tel" name="phone" maxlength="15" id="phone" required>
+            </li>
+            <li>
+                <label for="comment">Comentário:</label>
+                <textarea name="comment" maxlength="200" id="comment" required>
+                </textarea>
+            </li>
+            <li>
+                <button>Enviar comentário</button>
+            </li>
+        </ul>
+    </form>
+
+    <script>
+        var email = document.querySelector("#email");
+
+        email.addEventListener("input", function (event) {
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity("Email Inválido!");
+            } else {
+                email.setCustomValidity("");
+            }
+        });
+    </script>
+</body>
+
+</html>

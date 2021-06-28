@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        * {
+            font: sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            width: min-content;
+        }
+
+        form input {
+            margin-bottom: 5px;
+            border-radius: 5px;
+            border: 1px solid rgb(90, 90, 90);
+        }
+
+        input[type="submit"] {
+            align-self: center;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Sistema de Depósitos</h1>
+    <form onsubmit="calculaJuros()">
+        <input type="number" placeholder="Valor inicial" name="valorInicial" id="valorInicial" step="0.1" required>
+        <input type="number" placeholder="Quantidade de meses" name="qMeses" id="qMeses" required>
+        <input type="number" placeholder="Porcentagem de juros" name="porcentagem" id="porcentagem" step="0.1" required>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <!-- 
+        Crie um página da web que permita receber um valor inicial
+        de depósito, a quantidade de meses que esse dinheiro ficará
+        depositado e a porcentagem de juros ao ano.
+        Mostre quanto o dinheiro rendeu nesse período.
+
+        Fórmula:
+        resultado = Math.round(inicial * (1 + juros * anos))
+        
+        Onde:
+            inicial - valor inicial.
+            juros - porcentagem de juros. Ex.: 10%.
+            anos - tempo que o valor ficará depositado.
+     -->
+
+    <script>
+        function calculaJuros() {
+            let inicial = +document.querySelector("#valorInicial").value
+            let juros = +document.querySelector("#porcentagem").value
+            let anos = +document.querySelector("#qMeses").value / 12
+
+            console.log(inicial)
+            console.log(juros)
+            console.log(anos)
+
+            alert(Math.round(inicial * (1 + juros * anos)))
+        }
+
+    </script>
+</body>
+
+</html>

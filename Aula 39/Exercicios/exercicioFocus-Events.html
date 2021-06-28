@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        .fakeDiv {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(143, 168, 182);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        1) Crie uma <div> que se torne em uma <textarea> quando clicada.
+           A <textarea> permite editar o HTML da <div>
+           Quando o usuário pressionar Enter ou sair da <textarea>, ela
+           volta a ser uma <div> com o conteúdo alterado na <textarea>/
+     -->
+    <div class="fakeDiv">
+
+    </div>
+
+    <script>
+        let div = document.querySelector("div")
+        div.tabIndex = 0
+
+        let txtArea = document.createElement("textarea")
+        txtArea.style.display = "none"
+        txtArea.classList.add("fakeDiv")
+
+        div.after(txtArea)
+
+        div.addEventListener("focusin", (e) => {
+            div.style.display = "none"
+            txtArea.style.display = "block"
+        }) 
+        txtArea.addEventListener("focusout", (e) => {
+            txtArea.style.display = "none"
+            div.style.display = "block"
+            div.innerText = txtArea.value
+        })
+    </script>
+</body>
+
+</html>

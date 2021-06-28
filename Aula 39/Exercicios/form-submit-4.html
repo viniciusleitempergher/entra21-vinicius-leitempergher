@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submit</title>
+    <link rel="stylesheet" href="form-submitCSS.css">
+</head>
+
+<body>
+    <form>
+        <label for="email">
+            Digite seu email
+            <input type="email" name="email" id="email">
+        </label>
+        <input type="submit" value="Enviar">
+    </form>
+    <script>
+        let form = document.querySelector("form")
+
+        form.addEventListener("submit", (event) => {
+            if (!form.email.value.includes("@")) {
+                alert("Não é possível enviar o formulário")
+                event.preventDefault()
+            }
+        })
+    </script>
+    <script src="./form-submitJS.js">
+        
+    </script>
+</body>
+
+</html>
