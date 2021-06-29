@@ -46,9 +46,9 @@
     </form>
 
     <script>
-        var email = document.querySelector("#email");
+        let email = document.querySelector("#email");
 
-        email.addEventListener("input", function (event) {
+        email.addEventListener("input", (event) => {
             if (email.validity.typeMismatch) {
                 email.setCustomValidity("Email Inválido!");
             } else {
