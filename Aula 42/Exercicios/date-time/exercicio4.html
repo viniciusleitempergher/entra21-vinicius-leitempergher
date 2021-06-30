@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+
+<body>
+
+    <script>
+        console.log(obtemSegundos())
+
+        function obtemSegundos() {
+            let hoje = new Date()
+            return hoje.getSeconds() + hoje.getHours() * 60 * 60 + hoje.getMinutes() * 60
+        }
+        
+    </script>
+</body>
+
+</html>

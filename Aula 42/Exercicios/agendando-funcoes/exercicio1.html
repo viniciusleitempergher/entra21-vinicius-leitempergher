@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function imprimeNumeros(comeco, fim) {
+            let interval = setInterval(() => {
+                if (comeco == fim) clearInterval(interval)
+                console.log(comeco)
+                comeco++
+            }, 1000)
+        }
+
+        function imprimeNumeros2(comeco, fim) {
+            loop()
+            function loop() {
+                setTimeout(() => {
+                    if (comeco <= fim) {
+                        setTimeout(loop, 1000)
+                        console.log(comeco)
+                        comeco++
+                    }
+                }, 1000)
+            }
+        }
+    </script>
+</body>
+
+</html>

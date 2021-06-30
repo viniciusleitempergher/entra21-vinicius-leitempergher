@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <p id="hora"></p>
+        <p id="minuto"></p>
+        <p id="segundo"></p>
+    </div>
+
+    <script>
+        let elmHora = document.querySelector("#hora")
+        let elmMinuto = document.querySelector("#minuto")
+        let elmSegundo = document.querySelector("#segundo")
+
+        function atualizaHorario() {
+            let horaAtual = new Date()
+            elmHora.innerText = horaAtual.getHours()
+            elmMinuto.innerText = horaAtual.getMinutes()
+            elmSegundo.innerText = horaAtual.getSeconds()
+            
+            if (horaAtual.getSeconds() < 10) {
+                elmSegundo.prepend("0")
+            }
+            if (horaAtual.getMinutes() < 10) {
+                elmMinuto.prepend("0")
+            }
+            if (horaAtual.getHours() < 10) {
+                elmHora.prepend("0")
+            }
+        }
+
+        let interval = setInterval(() => {
+            atualizaHorario()
+        }, 1000)
+
+        // 2) Utilizando setInterval faça um relógio que obtenha o horário atual
+        // e faça ele aparecer na tela no formato: 
+        // hh:mm:ss
+    </script>
+</body>
+
+</html>

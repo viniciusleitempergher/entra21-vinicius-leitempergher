@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+
+<body>
+
+    <script>
+
+        let data = new Date()
+
+        console.log(obtemDiaSemana(data))
+
+        function obtemDiaSemana(data) {
+            let dia = data.getDay()
+            switch (dia) {
+                case 0:
+                    return "Domingo"
+                case 1:
+                    return "Segunda-Feira"
+                case 2:
+                    return "Terça-Feira"
+                case 3:
+                    return "Quarta-Feira"
+                case 4:
+                    return "Quinta-Feira"
+                case 5:
+                    return "Sexta-Feira"
+                case 6: 
+                    return "Sábado"
+            }
+        }
+    </script>
+</body>
+
+</html>

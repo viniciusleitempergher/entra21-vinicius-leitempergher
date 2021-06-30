@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cronometro {
+            display: flex;
+            flex-direction: row;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="time">
+        <button id="cronometrarBtn">Cronometrar!</button>
+    </div>
+
+    <div class="cronometro">
+        <div class="minutos"></div>
+        <div class="segundos"></div>
+    </div>
+
+    <script>
+        document.querySelector("#cronometrarBtn").addEventListener("click", () => {
+            criaCronometro(document.querySelector('input').value, alert)
+        })
+
+        function criaCronometro(tempo, callback) {
+            let [minutos, segundos] = tempo.split(":")
+            let timeLeft = new Date(0, 0, 0, 0, minutos, segundos)
+
+            setTimeout(function loop() {
+                if (timeLeft.getMinutes() > 0 || timeLeft.getSeconds() > 0) {
+                    setTimeout(loop, 1000)
+                    timeLeft.setSeconds(segundos--)
+                    document.querySelector(".minutos").innerHTML = timeLeft.getMinutes() + "&nbsp;:&nbsp;"
+                    document.querySelector(".segundos").innerText = timeLeft.getSeconds()
+                    if (timeLeft.getMinutes() < 10) {
+                        document.querySelector(".minutos").prepend("0")
+                    }
+                    if (timeLeft.getSeconds() < 10) {
+                        document.querySelector(".segundos").prepend("0")
+                    }
+                } else {
+                    callback()
+                }
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>

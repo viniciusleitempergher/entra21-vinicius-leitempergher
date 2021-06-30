@@ -25,10 +25,13 @@
                 alert("Não é possível enviar o formulário")
                 event.preventDefault()
             }
+            
         })
     </script>
-    <script src="./form-submitJS.js">
+    <script type="module">
+        import MostrarModal from "./form-submitJS.js";
         
+        MostrarModal("<h1>Teste!</H1>", console.log)
     </script>
 </body>
 

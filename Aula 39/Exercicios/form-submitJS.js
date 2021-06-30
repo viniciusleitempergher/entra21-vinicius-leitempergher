@@ -1,4 +1,4 @@
-function mostrarModal(html, callback) {
+function MostrarModal(html, callback) {
     let divPopup = document.createElement("div")
     let form = document.createElement("form")
     let input = document.createElement("input")
@@ -11,10 +11,6 @@ function mostrarModal(html, callback) {
 
     document.body.append(divPopup)
     form.innerHTML = html
-
-    for (child of form.childNodes) {
-        child.classList.add("modalpopup__addedcontent")
-    }
 
     form.addEventListener("submit", (e) => {
         document.body.removeChild(divPopup)
@@ -48,4 +44,5 @@ function mostrarModal(html, callback) {
 
     document.querySelector(".modalpopup__form__input").focus()
 }
-mostrarModal("<h1>Teste!</H1>", console.log)
+
+export default MostrarModal;

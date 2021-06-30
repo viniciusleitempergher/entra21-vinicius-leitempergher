@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+
+<body>
+
+    <script>
+        console.log(segundosParaAmanha());
+
+        function segundosParaAmanha() {
+            let hoje = new Date()
+            let hojeEmSegundos = hoje.getSeconds() + hoje.getHours() * 60 * 60 + hoje.getMinutes() * 60
+            let segundosDia = 24*60*60
+            return (segundosDia - hojeEmSegundos)
+        }
+    </script>
+</body>
+
+</html>
