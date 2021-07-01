@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cronometro {
+            display: flex;
+            flex-direction: row;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="time">
+        <button id="cronometrarBtn">Cronometrar!</button>
+    </div>
+
+    <div class="cronometro">
+        <div class="minutos"></div>
+        <div class="segundos"></div>
+    </div>
+
+    <script>
+        document.querySelector("#cronometrarBtn").addEventListener("click", () => {
+            criaCronometro(document.querySelector('input').value, alert)
+        })
+
+        let tempoSalvo = localStorage.getItem("tempo").split(":"),
+            horaFechou = new Date(localStorage.getItem("horaFechou"))
+
+        if (tempoSalvo[0] != "" && tempoSalvo[1] != ""
+            && tempoSalvo[0] != "00" && tempoSalvo[1] != "00") {
+
+            let tempoPassou = (new Date()) - horaFechou
+            let minutosPassaram = Math.floor(tempoPassou / 1000 / 60)
+            let segundosPassaram = Math.floor(tempoPassou / 1000 - minutosPassaram * 60)
+
+            console.log(tempoSalvo[0], tempoSalvo[1]);
+            console.log((tempoSalvo[0] - minutosPassaram) + ":" + (tempoSalvo[1] - segundosPassaram));
+
+            criaCronometro((tempoSalvo[0] - minutosPassaram) + ":" + (tempoSalvo[1] - segundosPassaram), alert)
+        }
+
+        function criaCronometro(tempo, callback) {
+            let [minutos, segundos] = tempo.split(":")
+            let timeLeft = new Date(0, 0, 0, 0, minutos, segundos)
+
+            setTimeout(function loop() {
+                if (timeLeft.getMinutes() > 0 || timeLeft.getSeconds() > 0) {
+                    setTimeout(loop, 1000)
+
+
+                    if (segundos < 0) segundos = 60
+                    timeLeft.setSeconds(--segundos)
+                    console.log(segundos)
+
+
+                    document.querySelector(".minutos").innerHTML = timeLeft.getMinutes() + "&nbsp;:&nbsp;"
+                    document.querySelector(".segundos").innerText = timeLeft.getSeconds()
+
+                    if (timeLeft.getMinutes() < 10) {
+                        document.querySelector(".minutos").prepend("0")
+                    }
+                    if (timeLeft.getSeconds() < 10) {
+                        document.querySelector(".segundos").prepend("0")
+                    }
+                } else {
+                    callback()
+                }
+            }, 1000)
+        }
+
+        window.addEventListener("beforeunload", e => {
+            let minutos = document.querySelector(".minutos").innerText,
+                segundos = document.querySelector(".segundos").innerText
+            localStorage.setItem("tempo", (minutos + "" + segundos))
+            localStorage.setItem("horaFechou", new Date())
+        })
+        /*
+        2) Crie um cronômetro que continue funcionando mesmo se o usuário fechar o navegador.
+        */
+    </script>
+</body>
+
+</html>

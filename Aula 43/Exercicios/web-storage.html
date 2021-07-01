@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea id="dontLost" onkeydown="saveContent()"></textarea>
+    <script>
+
+        let txtArea = document.querySelector("#dontLost")
+        txtArea.innerText = localStorage.getItem("texto")
+        console.log(localStorage.getItem("texto"));
+
+        function saveContent() {
+            localStorage.setItem("texto", txtArea.value)
+        }
+        /*
+        1) Crie uma <textarea> que não perca o valor digitado mesmo se o usuário fechar o navegador.
+        */
+    </script>
+</body>
+
+</html>

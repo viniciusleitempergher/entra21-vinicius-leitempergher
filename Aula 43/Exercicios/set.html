@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. Crie uma função unicos(vetor) que retorna um vetor com elementos únicos.
+        // Ex.: unicos([1, 2, 2, 3, 3, 4, 5]) -> 1, 2, 3, 4, 5
+
+        console.log(unicos([1, 2, 2, 3, 3, 4, 5]));
+
+        function unicos(vector) {
+            let unico = new Set(vector)
+            return Array.from(unico)
+        }
+    </script>
+</body>
+
+</html>

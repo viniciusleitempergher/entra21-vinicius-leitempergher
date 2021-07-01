@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function limpaAnagramas(vector) {
+            let vectorBackup = vector,
+                map = new Map(),
+                clearVector = []
+            for (item of vector) {
+                map.set(((Array.from(item).sort()).join("")), item)
+            }
+            map.forEach((value, key) => {
+                clearVector.push(value)
+            })
+            return clearVector
+        }
+
+        console.log(limpaAnagramas(["ova", "pato", "apto", "teste", "mercado", "avo"]))
+
+        // Exercício
+
+        // Escreva uma função limpaAnagramas(vetor) que retorna um vetor sem anagramas
+        // Exemplo:
+        // limpaAnagramas(["ova", "pato", "apto", "teste", "mercado" "avo"])
+        // resultado: ["ova", "pato", "teste", "mercado"] ou["avo", "apto", "teste", "mercado"]
+        //     * /
+    </script>
+</body>
+
+</html>
