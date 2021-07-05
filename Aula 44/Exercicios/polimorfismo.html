@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class Produto {
+            #nomeLoja
+            #preco
+            #descricao
+
+            constructor(nomeLoja, preco) {
+                this.#nomeLoja = nomeLoja
+                this.#preco = preco
+                this.#descricao = "Produto de informática"
+            }
+
+            get nomeLoja() {
+                return this.nomeLoja
+            }
+            set nomeLoja(value) {
+                this.#nomeLoja = value
+            }
+
+            get preco() {
+                return this.preco
+            }
+            set preco(preco) {
+                this.#preco = preco
+            }
+
+            get descricao() {
+                return this.#descricao
+            }
+            set descricao(descricao) {
+                this.#descricao = descricao
+            }
+        }
+
+        class Mouse extends Produto {
+            constructor(nomeLoja, preco, tipo, descricao) {
+                super(nomeLoja, preco)
+                this.tipo = tipo
+                super.descricao = descricao
+            }
+            get descricao() {
+                return this.tipo + " " + super.descricao
+            }
+        }
+        class Livro extends Produto {
+            constructor(nomeLoja, preco, autor, descricao) {
+                super(nomeLoja, preco)
+                this.autor = autor
+                super.descricao = descricao
+            }
+            get descricao() {
+                return this.autor + " " + super.descricao
+            }
+        }
+
+        // Exercício
+
+        // 1) Crie uma classe “Produto” que possua os atributos “nomeLoja” e “preco”,
+        // crie os métodos sets e gets para estes atributos. Crie também o atributo
+        // “descrição” e seu método chamado “getDescrição” que retorna uma string
+        // com o simples conteúdo “Produto de informática”. 
+
+        // Crie duas classes filhas de “Produto”, que serão “Mouse” com o atributo
+        // “tipo” e “Livro” com o atributo “autor”, no método construtor de cada uma
+        // dessas classes passe como argumento a descrição desse produto, por exemplo,
+        // Mouse(“Mouse ótico, Saída USB. 1.600 dpi”); Crie o método “getDescrição”
+        // que retorna a descrição que foi passada no argumento do construtor
+        // concatenada com o atributo que a classe tiver, “autor” no caso de livro e
+        // “tipo” no caso de mouse, esse método deve ter a mesma assinatura do método
+        // “getDescrição” da classe pai “Produto”. 
+
+        // Após isso crie um vetor chamado carrinho e adicione 5 produtos (que podem ser Mouse ou Livro) dentro. 
+        // E depois chame a descrição de cada um dos produtos.
+    </script>
+</body>
+
+</html>

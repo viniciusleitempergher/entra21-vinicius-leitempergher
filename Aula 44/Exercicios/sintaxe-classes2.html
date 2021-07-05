@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 2) Crie uma classe Agenda que pode armazenar 10 pessoas e que seja capaz de realizar as 
+        // seguintes operações:
+        // - armazenaPessoa(nome, telefone)
+        // - removePessoa(nome)
+        // - buscaPessoa(nome) -> Informa o número de telefone da pessoa
+        // - imprimeAgenda() -> Imprime os dados de todas as pessoas da agenda
+        // - imprimePessoa(indice) -> Imprime os dados da pessoa que está na posição "i" da agenda
+
+        class Agenda {
+            #lista = []
+
+            armazenaPessoa(nome, telefone) {
+                if (this.#lista.length >= 10) {
+                    throw "A agenda está em seu limite(10)."
+                }
+                let pessoa = new Pessoa(nome, telefone)
+                this.#lista.push(pessoa)
+            }
+            removePessoa(nome) {
+                for (let i = 0; i < this.#lista.length; i++) {
+                    if (this.#lista[i].nome == nome) {
+                        this.#lista.splice(i, 1)
+                        return "Deletado."
+                    }
+                }
+                return "Nenhuma pessoa com este nome."
+            }
+            buscaPessoa(nome) {
+                for (let pessoa of this.#lista) {
+                    if (pessoa.nome == nome) {
+                        return pessoa.telefone
+                    }
+                }
+                return "Nenhuma pessoa com este nome."
+            }
+            imprimeAgenda() {
+                console.table(this.#lista)
+            }
+            imprimePessoa(i) {
+                console.log("Nome: " + this.#lista[i].nome)
+                console.log("Telefone: " + this.#lista[i].telefone)
+            }
+        }
+
+        class Pessoa {
+            constructor(nome, telefone) {
+                this.nome = nome
+                this.telefone = telefone
+            }
+        }
+    </script>
+</body>
+
+</html>

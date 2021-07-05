@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Aluno {
+            #matricula
+            #nome
+            #notasProva
+            #notaTrabalho
+            
+            constructor(matricula, nome, notasProva, notaTrabalho) {
+                this.#matricula = matricula
+                this.#nome = nome
+                this.#notasProva = notasProva
+                this.#notaTrabalho = notaTrabalho
+            }
+
+            media() {
+                let mediaFinal = 0
+                for (let nota of this.#notasProva) {
+                    mediaFinal += nota / 10 * 3
+                }
+                mediaFinal += this.#notaTrabalho / 10 * 2
+                return mediaFinal
+            }
+            final() {
+                let mediaFinal = 0
+                for (let nota of this.#notasProva) {
+                    mediaFinal += nota / 10 * 3
+                }
+                mediaFinal += this.#notaTrabalho / 10 * 2
+                if (mediaFinal < 6) {
+                    return 0
+                }
+                return 10 - mediaFinal
+            }
+        }
+
+        let aluno = new Aluno(1, "Vini", [10, 10], 10)
+        console.log(aluno.media());
+        console.log(aluno.final());
+        /*
+        Exercícios
+
+        1) Escreva a classe Aluno. Cada objeto dessa classe deve guardar os seguintes dados:
+        - matrícula,
+        - nome
+        - 2 notas de prova
+        - 1 nota de trabalho
+
+        Essa classe deve ter 2 métodos:
+        - media: calcula a média final do aluno (cada prova tem peso 3 e o trabalho tem peso 2)
+        - final: calcula quanto o aluno precisa para a prova final (retorna zero se ele não for para a final)
+        
+
+        
+
+        3) Escreva um classe Voo. Cada vôo possui no máximo 100 passageiros, e a classe permite controlar a 
+        ocupação das vagas. A classe deve ter os seguintes métodos:
+
+        - constructor: número do vôo, data
+        - proximoLivre: retorna o número da próxima cadeira livre
+        - verifica: verifica se o número da cadeira recebido como parâmetro está ocupada
+        - ocupa: ocupa determinada cadeira do vôo, cujo número é recebido como parâmetro,
+        retorna verdadeiro se a cadeira ainda não estiver ocupada e falso caso contrário.
+        - vagas: retorna o número de cadeiras vagas (não ocupadas) disponíveis no vôo.
+        - getVoo: retorna o número do vôo
+        */
+    </script>
+</body>
+</html>

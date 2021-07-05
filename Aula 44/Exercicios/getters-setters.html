@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+Exercício
+
+Seguindo os princípios de encapsulamento crie a classe Funcionario:        
+- Atributos: matricula, nome e salario.
+ 
+Regras para validações dos atributos:
+- matrícula: Deve ser um número inteiro positivo.
+- nome: deve conter de 4 a 50 caracteres.
+- salario: deve ser um valor não inferior a R$ 465,00.
+
+Testes:
+let funcionario = new Funcionario("12.5", "Pedro", 700) // Uncaught Matrícula inválida
+ 
+let funcionario = new Funcionario(12, "Pedro", 700)
+funcionario.salario = 400 // Uncaught Salário inválido
+
+let funcionario = new Funcionario(12, "Pedro", 700)
+funcionario.nome = "A" // Uncaught Nome inválido
+*/
+
+        class Funcionario {
+            #matricula
+            #nome
+            #salario
+
+            constructor(matricula, nome, salario) {
+                this.#matricula = matricula
+                this.#nome = nome
+                this.salario = salario
+            }
+
+            set matricula(matricula) {
+                if (!this.#validaMatricula(matricula)) {
+                    throw "Matricula inválida."
+                }
+                this.#matricula = matricula
+            }
+            set nome(nome) {
+                if (!this.#validaNome(nome)) {
+                    throw "Nome inválido."
+                }
+                this.#nome = nome
+            }
+            set salario(salario) {
+                if (!this.#validaSalario(salario)) {
+                    throw "Salário inválido."
+                }
+                this.#salario = salario
+            }
+
+            #validaMatricula(matricula) {
+                return matricula > 0 && Number.isInteger(matricula)
+            }
+            #validaNome(nome) {
+                return nome.length > 4 && nome.length < 50
+            }
+            #validaSalario(salario) {
+                return salario > 465
+            }
+        }
+        //let funcionario = new Funcionario("12.5", "Pedro", 700) // Uncaught Matrícula inválida
+
+        // let funcionario = new Funcionario(12, "Pedro", 700)
+        // funcionario.salario = 400 // Uncaught Salário inválido
+
+        let funcionario = new Funcionario(12, "Pedro", 700)
+        funcionario.nome = "A" // Uncaught Nome inválido
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 3) Escreva um classe Voo. Cada vôo possui no máximo 100 passageiros, e a classe permite controlar a 
+        // ocupação das vagas. A classe deve ter os seguintes métodos:
+
+        // - constructor: número do vôo, data
+        // - proximoLivre: retorna o número da próxima cadeira livre
+        // - verifica: verifica se o número da cadeira recebido como parâmetro está ocupada
+        // - ocupa: ocupa determinada cadeira do vôo, cujo número é recebido como parâmetro,
+        // retorna verdadeiro se a cadeira ainda não estiver ocupada e falso caso contrário.
+        // - vagas: retorna o número de cadeiras vagas (não ocupadas) disponíveis no vôo.
+        // - getVoo: retorna o número do vôo
+
+        class Voo {
+            #lista = []
+
+            constructor(numeroVoo, data) {
+                this.numeroVoo = numeroVoo
+                this.data = data
+                for (let i = 0; i < 100; i++) {
+                    this.#lista.push(false)
+                }
+            }
+            proximoLivre() {
+                return this.#lista.findIndex((elm) => !elm)
+            }
+            verifica(i) {
+                if (this.#lista[i]) {
+                    return "Esta cadeira está ocupada."
+                }
+                return "Esta cadeira está liberada!"
+            }
+            ocupa(i) {
+                if (this.#lista[i]) {
+                    return false
+                }
+                return this.#lista[i] = true
+            }
+            vagas() {
+                let count = 0
+                for (let vaga of this.#lista) {
+                    if (!vaga) {
+                        count++
+                    }
+                }
+                return count
+            }
+            getVoo() {
+                return this.numeroVoo
+            }
+        }
+
+    </script>
+</body>
+
+</html>
