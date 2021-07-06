@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herança-3</title>
+</head>
+
+<body>
+    <script>
+        // 3) Crie a classe Imovel, que possui um endereço e um preço.
+        // a. crie uma classe Novo, que herda Imovel e possui um adicional no preço. Crie
+        // métodos de acesso e impressão deste valor adicional.        
+        // b. crie uma classe Velho, que herda Imovel e possui um desconto no preço. Crie
+        // métodos de acesso e impressão para este desconto.
+
+        // Ambas as classes Novo e Velho devem implementar um método calculaTotal() que informa
+        // o valor com o adicional ou com o desconto.
+
+        class Imovel {
+            constructor(endereco, preco) {
+                this.endereco = endereco
+                this.preco = preco
+            }
+        }
+
+        class Novo extends Imovel {
+            constructor(endereco, preco, adicional) {
+                super(endereco, preco)
+                this.adicional = adicional
+            }
+            calculaTotal() {
+                return preco + adicional
+            }
+        }
+        class Velho extends Imovel {
+            constructor(endereco, preco, desconto) {
+                super(endereco, preco)
+                this.preco = preco
+            }
+            calculaTotal() {
+                return preco - desconto
+            }
+        }
+
+    </script>
+</body>
+
+</html>

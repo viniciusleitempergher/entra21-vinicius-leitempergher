@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herança-Proto</title>
+</head>
+
+<body>
+    <script>
+        // 1) Analise o código abaixo e informe quais valores serão apresentados no processo
+
+        let animal = {
+            pula: null
+        }
+
+        let coelho = {
+            __proto__: animal,
+            pula: true
+        }
+
+        console.log(coelho.pula) // True
+
+        delete coelho.pula
+
+        console.log(coelho.pula) // null
+
+        delete animal.pula
+
+        console.log(coelho.pula) // undefined
+    </script>
+</body>
+
+</html>

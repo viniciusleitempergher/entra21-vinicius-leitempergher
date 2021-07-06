@@ -29,11 +29,7 @@
                 return mediaFinal
             }
             final() {
-                let mediaFinal = 0
-                for (let nota of this.#notasProva) {
-                    mediaFinal += nota / 10 * 3
-                }
-                mediaFinal += this.#notaTrabalho / 10 * 2
+                let mediaFinal = this.media()
                 if (mediaFinal < 6) {
                     return 0
                 }
