@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 1) Crie uma função somar(n1, n2, cb) que some dois números após 2 segundos, se o resultado for par irá chamar
+        // a callback passando o resultado calculado, caso seja ímpar irá chamar a callback passando um erro com a mensagem "O valor é ímpar".
+
+        // callback(error, result) => Se um erro for passado irá mostrar a mensagem: "A operação falhou! [mensagem do erro]".
+        // Senão, irá mostrar a mensagem: "A operação foi bem sucedida! O número [result] é par".
+
+        function somar(n1, n2, cb) {
+            setTimeout(() => {
+                if ((n1 + n2) % 2 === 0) {
+                    return cb("", (n1 + n2))
+                } else {
+                    return cb("O valor é ímpar")
+                }
+            }, 2000)
+        }
+
+        function callback(error, result = undefined) {
+            if (!result) {
+                console.log("A operação falhou! " + error)
+            } else {
+                console.log(`A operação foi bem sucedida! O número ${result} é par`);
+            }
+        }
+
+        somar(2, 1, callback)
+
+    </script>
+</body>
+
+</html>

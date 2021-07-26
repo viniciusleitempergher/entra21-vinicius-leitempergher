@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 2) Crie uma função dobrarEm5Segundos(numero, cb) que dobre o valor de um número após 5 segundos.
+        // Se o valor recebido não for um número
+        // ele irá chamar a cb passando um erro. 
+
+        // callback(error, result) => Se um erro for passado irá mostrar a mensagem: 
+        // "A operação falhou! [mensagem do erro]".
+        // Senão, irá mostrar a mensagem: "A operação foi bem sucedida! O resultado é [result]".
+
+        function dobrarEm5Segundos(numero, cb) {
+            setTimeout(() => {
+                if (Number.isFinite(numero)) {
+                    numero *= 2;
+                    cb(undefined, `${numero}`)
+                } else {
+                    cb("Erro, o valor não é um número.")
+                }
+            }, 5000)
+        }
+
+        function cb(error, result = undefined) {
+            if (!result) {
+                console.log(`A operação falhou! ${error}`)
+            } else {
+                console.log(`A operação foi bem sucedida! O resultado é ${result}`);
+            }
+        }
+
+        dobrarEm5Segundos(2, cb)
+
+        //set PATH=C:\Users\vinicius.leitemperg\Documents\node-v14.17.3-win-x64;%PATH%
+    </script>
+</body>
+
+</html>
