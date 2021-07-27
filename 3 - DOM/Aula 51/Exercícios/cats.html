@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <select class="catsbreeds" name="">
+
+        </select>
+        <button onclick="changeCat">
+            Ver
+        </button>
+    </form>
+
+    <script>
+
+        function changeCat(e) {
+            let breed = e.target.textContent
+            getCatByCategory(breed)
+            e.preventDefault()
+        }
+
+        async function getCatByCategory(breedId) {
+
+            let response = await fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`, {
+                headers: {
+                    "x-api-key": "ea2c9cfc-5fe7-46fa-adf1-9c741d90259a"
+                }
+            })
+            if (!response.ok) {
+                return console.log("A requisição falhou!")
+            }
+
+            let body = await response.json();
+
+            createCatImage(body[0]["url"])
+        }
+
+        async function getBreedsNames() {
+
+            let response = await fetch(`https://api.thecatapi.com/v1/breeds`, {
+                headers: {
+                    "x-api-key": "ea2c9cfc-5fe7-46fa-adf1-9c741d90259a"
+                }
+            })
+            let body = await response.json();
+
+            let names = []
+
+            for (let item of body) {
+                names.push(item.name)
+            }
+            return names
+
+        }
+
+        function createCatImage(url) {
+            const img = document.createElement("img");
+
+            img.src = url;
+
+            document.body.append(img);
+        }
+
+        async function pushBreedNames() {
+            names = await getBreedsNames()
+            for (let name of names) {
+                document.querySelector(".catsbreeds").insertAdjacentHTML("beforeend", `<option>${name}</option>`)
+            }
+        }
+
+        pushBreedNames()
+    </script>
+</body>
+
+</html>
