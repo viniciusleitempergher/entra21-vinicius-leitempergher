@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick & Morty!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto:wght@300&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 15px;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            background: rgb(46, 46, 46);
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .cards__card {
+            padding: 10px;
+            background: rgb(65, 65, 65);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .cards__card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cards__card-img img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .cards__card-name {
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        h2 {
+            line-height: 2rem;
+        }
+
+        p {
+            display: inline-flex;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .rounded-input {
+            border-radius: 15px;
+            padding: 5px 10px;
+            border: none;
+            outline: none;
+        }
+
+        .episode {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form class="episode">
+        <select name="" id="episode-select" class="rounded-input">
+
+        </select>
+        <button class="rounded-input">
+            Ver
+        </button>
+    </form>
+
+    <div class="cards">
+
+    </div>
+
+    <script>
+
+        window.addEventListener("load", afterload)
+        document.querySelector("button.rounded-input").addEventListener("click", buttonClick)
+
+        async function buttonClick(e) {
+            e.preventDefault()
+
+            let newCards = document.querySelector(".cards").cloneNode(false)
+            document.querySelector(".cards").remove()
+            document.body.append(newCards)
+
+            let episode = await getEpisode(document.querySelector("#episode-select").value)
+
+            getCharacters(episode)
+        }
+
+        async function getEpisode(id) {
+            let response = await fetch(`https://rickandmortyapi.com/api/episode/${id}`)
+
+            if (!response.ok) {
+                return console.log("A requisição falhou!")
+            }
+
+            let body = await response.json();
+
+            return body
+        }
+
+        async function getCharacters(episode) {
+            let charactersLinks = episode.characters
+            let characters = []
+
+            for (let characterLink of charactersLinks) {
+                let response = await fetch(characterLink)
+
+                if (!response.ok) {
+                    return console.log("A requisição falhou!")
+                }
+
+                let body = await response.json();
+                addCard(body)
+            }
+        }
+
+        async function afterload() {
+            let episodes = await getEpisodes()
+
+            for (let i = 0; i < episodes.length; i++) {
+                let episodeOpt = document.createElement("option")
+
+                episodeOpt.textContent = episodes[i].name
+                episodeOpt.value = episodes[i].id
+
+                document.querySelector("#episode-select").prepend(episodeOpt)
+            }
+        }
+
+        function addCard(card) {
+            let cardDiv = document.createElement("div")
+            let imgDiv = document.createElement("div")
+            let contentDiv = document.createElement("div")
+
+            cardDiv.classList.add("cards__card")
+            imgDiv.classList.add("cards__card-img")
+            contentDiv.classList.add("cards__card-content")
+
+            imgDiv.innerHTML = `<img src='${card.image}'>`
+            contentDiv.innerHTML = `<h2 class="cards__card-name">${card.name}</h2>`
+            contentDiv.innerHTML += `<p>Specie: ${card.species}</p>`
+            contentDiv.innerHTML += `<p>Gender: ${card.gender}</p>`
+            contentDiv.innerHTML += `<p>Status: ${card.status}</p>`
+
+            document.querySelector(".cards").append(cardDiv)
+            cardDiv.prepend(contentDiv)
+            cardDiv.prepend(imgDiv)
+        }
+
+
+        async function getEpisodes() {
+            let response = await fetch(`https://rickandmortyapi.com/api/episode`)
+
+            if (!response.ok) {
+                return console.log("A requisição falhou!")
+            }
+
+            let body = await response.json();
+
+            return body.results
+        }
+    </script>
+</body>
+
+</html>

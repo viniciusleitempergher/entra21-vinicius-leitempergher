@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick & Morty</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Roboto:wght@300&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 15px;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            background: rgb(46, 46, 46);
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .cards__card {
+            padding: 10px;
+            background: rgb(65, 65, 65);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .cards__card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cards__card-img img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .cards__card-name {
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        h2 {
+            line-height: 2rem;
+        }
+
+        p {
+            display: inline-flex;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cards">
+
+    </div>
+
+    <script>
+
+        window.addEventListener("load", afterload)
+
+        async function afterload() {
+            let characters = await getCharacters()
+
+            let charactersSelected = []
+
+            for (let i = 0; i < 9; i++) {
+                let randomCharacter = Math.floor((Math.random() * characters.length - 1) + 1)
+
+                if (!charactersSelected.includes(randomCharacter)) {
+                    charactersSelected.push(randomCharacter)
+                    addCard(characters[randomCharacter])
+                } else {
+                    i--
+                }
+            }
+        }
+
+        function addCard(card) {
+            let cardDiv = document.createElement("div")
+            let imgDiv = document.createElement("div")
+            let contentDiv = document.createElement("div")
+
+            cardDiv.classList.add("cards__card")
+            imgDiv.classList.add("cards__card-img")
+            contentDiv.classList.add("cards__card-content")
+
+            imgDiv.innerHTML = `<img src='${card.image}'>`
+            contentDiv.innerHTML = `<h2 class="cards__card-name">${card.name}</h2>`
+            contentDiv.innerHTML += `<p>Specie: ${card.species}</p>`
+            contentDiv.innerHTML += `<p>Gender: ${card.gender}</p>`
+            contentDiv.innerHTML += `<p>Status: ${card.status}</p>`
+
+            document.querySelector(".cards").prepend(cardDiv)
+            cardDiv.prepend(contentDiv)
+            cardDiv.prepend(imgDiv)
+        }
+
+        async function getCharacters() {
+            let response = await fetch(`https://rickandmortyapi.com/api/character/?name=rick&status=alive`)
+
+            if (!response.ok) {
+                return console.log("A requisição falhou!")
+            }
+
+            let body = await response.json();
+
+            return body.results
+        }
+    </script>
+</body>
+
+</html>
