@@ -82,17 +82,8 @@
         async function afterload() {
             let characters = await getCharacters()
 
-            let charactersSelected = []
-
-            for (let i = 0; i < 9; i++) {
-                let randomCharacter = Math.floor((Math.random() * characters.length - 1) + 1)
-
-                if (!charactersSelected.includes(randomCharacter)) {
-                    charactersSelected.push(randomCharacter)
-                    addCard(characters[randomCharacter])
-                } else {
-                    i--
-                }
+            for (let character of characters) {
+                addCard(character)
             }
         }
 
