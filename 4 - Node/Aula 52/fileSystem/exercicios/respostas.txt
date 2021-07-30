@@ -1,0 +1,157 @@
+// Exercício do arquivo escrevendoArquivos.js
+
+// 1. Crie um script que irá salvar as informações de memória a cada 5 segundos em um arquivo chamado log.txt
+
+// As informações devem ser salvas no seguinte formato:
+// {"total_memory":"xx MB", "free_memory":"xx MB", "usage":"xx %"}
+
+// Onde:
+//     * total_memory: Quantidade total de memória.
+//     * free_memory: Quantidade de memória livre.
+//     * usage: Porcentagem de uso da memória.
+
+const fsPromises = require("fs/promises");
+const path = require("path");
+const os = require("os");
+
+setInterval(async () => {
+    const usage = (os.totalmem() - os.freemem()) * 100 / os.totalmem()
+    const totalMem = os.totalmem() / 1024 / 1024;
+    const freeMem = os.freemem() / 1024 / 1024;
+
+    const conteudo = `{"total_memory": "${totalMem.toFixed(2)} MB", "free_memory": "${freeMem.toFixed(2)} MB", "usage": "${usage.toFixed(2)} %"}`;
+
+    console.log(conteudo);
+
+    try {
+        fsPromises.writeFile(path.resolve(__dirname, "log.txt"), conteudo);
+    } catch (err) {
+        console.log(err);
+    }
+}, 5000)
+
+// Arquivo lendoArquivos.txt
+
+//  1) Crie um script que leia o arquivo exercicioNomes.txt e mostra todos os nomes que começam com a letra A
+//  presentes no arquivo.
+
+const fsPromises = require("fs/promises");
+const { EOL } = require("os");
+const path = require("path");
+
+(async () => {
+    try {
+        const data = await fsPromises.readFile(path.resolve(__dirname, "../exercicioNomes.txt"));
+        const content = data.toString("utf-8")
+        const names = content.split(EOL)
+
+        for (let name of names) {
+            if (name[0].toUpperCase() == 'A') {
+                console.log(name);
+            }
+        }
+    } catch (err) {
+        console.log(err.message);
+    }
+})();
+
+// 2) Crie uma função getUserByName(name) que retorne o usuário obtido através do arquivo "users.json". Caso o usuário
+// não exista a função deve retornar undefined.
+
+// Se o usuário existir mostrar as informações do usuário no seguinte formato:
+// Usuário encontrado: 
+// nome: [nome do usuário]
+// idade: [idade do usuário]
+// email: [email do usuário]
+
+// Caso o usuário não existir mostrar a mensagem: "Usuário não foi encontrado."
+
+const fsPromises = require("fs/promises")
+const path = require("path")
+
+async function getUserByName(name) {
+    const users = await getUsers();
+
+    for (let user of users) {
+        if (user.nome == name) {
+            return console.log(`
+Usuário encontrado:
+nome: ${user.nome}
+idade: ${user.idade}
+email: ${user.email}
+            `)
+        }
+    }
+
+    return console.log("Usuário não foi encontrado.");
+}
+
+async function getUsers() {
+    try {
+        const data = await fsPromises.readFile(path.resolve(__dirname, "../users.json"));
+        const content = data.toString("utf-8")
+        const parsedContent = JSON.parse(content)
+
+        return parsedContent
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+getUserByName("João")
+
+// Arquivo trabalhandoComPastas.js
+
+// 1) Crie uma função obterArquivos(path) que receba como parâmetro o path de um diretório
+// e retorne um vetor com todos os arquivos presentes naquele diretório.
+
+// Obs.: Diretórios não devem ser incluídos.
+
+const fsPromises = require("fs/promises")
+const path = require("path")
+
+async function obterArquivos(dir) {
+    const nomePasta = path.resolve(dir);
+
+    let files = await fsPromises.readdir(nomePasta);
+
+    files = files.filter((value) => value.includes("."))
+
+    console.log(files);
+}
+
+obterArquivos(__dirname + "\\..")
+
+// 2) Crie uma função moveFiles(oldFolderPath, newFolderPath) que move os arquivos da pasta original
+// para a nova pasta.
+
+const fs = require("fs/promises")
+
+async function moveFiles(oldFolderPath, newFolderPath) {
+    try {
+        await fs.rename(oldFolderPath, newFolderPath);
+        await fs.mkdir(oldFolderPath, { recursive: true });
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+moveFiles(__dirname + "/oi3", __dirname + "/oi")
+
+// 3) Crie uma função moveEspecificFiles(oldFolderPath, newFolderPath, extension) que move os arquivos
+// com a extensão informada para a nova pasta.
+
+const fs = require("fs/promises")
+const path = require("path")
+
+async function moveEspecificFiles(oldFolderPath, newFolderPath, extension) {
+    let files = await fs.readdir(oldFolderPath);
+
+    files = files.filter((value) => value.includes(extension))
+
+    await fs.mkdir(newFolderPath, { recursive: true });
+
+    files.map(async (value) => {
+        await fs.rename(path.resolve(oldFolderPath, value), path.resolve(newFolderPath, value));
+    })
+}

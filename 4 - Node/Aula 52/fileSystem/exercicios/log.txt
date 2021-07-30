@@ -1,0 +1,1 @@
+{"total_memory": "8071.37 MB", "free_memory": "3377.27 MB", "usage": "58.16 %"}
