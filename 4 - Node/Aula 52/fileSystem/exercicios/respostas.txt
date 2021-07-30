@@ -100,6 +100,40 @@ async function getUsers() {
 
 getUserByName("João")
 
+// 3) Faça um script que leia o arquivo exercioNomes.txt e utilize a biblioteca chalk (https://www.npmjs.com/package/chalk) para
+// mostrar os nomes que começam com a letra A em vermelho, os nomes que começam com a letra C em azul e os
+// nomes que começam com a letra D em magenta.
+
+const chalk = require("chalk")
+const fs = require("fs/promises");
+const { EOL } = require("os");
+const path = require("path");
+
+(async () => {
+    try {
+        const data = await fs.readFile(path.resolve(__dirname, "../exercicioNomes.txt"));
+        const content = data.toString("utf-8")
+        const names = content.split(EOL)
+
+        for (let name of names) {
+            if (name[0].toUpperCase() == 'A') {
+                console.log(chalk.red(name));
+                continue
+            }
+            if (name[0].toUpperCase() == 'C') {
+                console.log(chalk.blue(name));
+                continue
+            }
+            if (name[0].toUpperCase() == 'D') {
+                console.log(chalk.magenta(name));
+                continue
+            }
+        }
+    } catch (err) {
+        console.log(err.message);
+    }
+})();
+
 // Arquivo trabalhandoComPastas.js
 
 // 1) Crie uma função obterArquivos(path) que receba como parâmetro o path de um diretório
