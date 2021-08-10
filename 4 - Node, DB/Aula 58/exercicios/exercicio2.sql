@@ -50,3 +50,45 @@ SELECT *
 	ORDER BY CONCAT(nome, sobrenome);
 	
 -- 2- b)
+SELECT nome, sobrenome, data_nascimento
+	FROM funcionarios
+	ORDER BY data_nascimento DESC;
+
+-- 2- c)
+SELECT SUM(salario) total_gasto
+	FROM funcionarios;
+
+-- 2- d)
+SELECT f.nome, d.nome departamento, f.funcao 
+	FROM departamento d INNER JOIN funcionarios f
+	ON d.id = f.id_departamento;
+
+-- 2- e)
+SELECT d.nome, f.nome gerente 
+	FROM departamento d INNER JOIN funcionarios f
+	ON d.id_gerente = f.id;
+
+-- 2- f)
+SELECT d.nome, sum(f.salario)
+	FROM departamento d INNER JOIN funcionarios f
+	ON d.id = f.id_departamento
+	GROUP BY d.nome;
+	
+-- 2- g)
+SELECT count(id) FROM funcionarios;
+
+-- 2- h)
+SELECT round(avg(salario),2) media_salario
+	FROM funcionarios; 
+	
+-- 2- i)
+SELECT d.nome, round(avg(f.salario), 2)
+	FROM departamento d INNER JOIN funcionarios f
+	ON d.id = f.id_departamento
+	GROUP BY d.nome;
+
+-- 2- j)
+SELECT d.nome, max(f.salario)
+	FROM departamento d INNER JOIN funcionarios f
+	ON d.id = f.id_departamento
+	GROUP BY d.nome;
