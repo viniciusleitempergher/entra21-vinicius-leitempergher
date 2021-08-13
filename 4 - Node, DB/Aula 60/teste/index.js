@@ -1,12 +1,6 @@
-const { Pool } = require("pg");
-const format = require("pg-format")
+//const format = require("pg-format")
 
-const pool = new Pool({
-    host: 'localhost',
-    user: 'postgres',
-    password: 'admin',
-    database: 'node',
-});
+const db = require("./db");
 
 (async () => {
     // try {
@@ -45,20 +39,29 @@ const pool = new Pool({
     //     pool.end();
     // }
 
+    // try {
+    //     const funcionarios = [
+    //         ["joão", "joão@email.com", "(47) 9 8888-8888"],
+    //         ["maria", "maria@email.com", "(47) 9 7777-7777"]
+    //     ];
+
+    //     const query = format("INSERT INTO funcionarios (nome, email, telefone) VALUES %L RETURNING *", funcionarios);
+
+    //     const res = await db.query(query);
+
+    //     console.log(res.rows);
+    // } catch (error) {
+    //     console.log(error.message);
+    // } finally {
+    //     db.end();
+    // }
+
     try {
-        const funcionarios = [
-            ["joão", "joão@email.com", "(47) 9 8888-8888"],
-            ["maria", "maria@email.com", "(47) 9 7777-7777"]
-        ];
-
-        const query = format("INSERT INTO funcionarios (nome, email, telefone) VALUES %L RETURNING *", funcionarios);
-
-        const res = await pool.query(query);
-
-        console.log(res.rows);
+        const response = await db.query("select * from funcionarios;")
+        console.log(response.rows);
     } catch (error) {
         console.log(error.message);
     } finally {
-        pool.end();
+        db.end();
     }
 })();
