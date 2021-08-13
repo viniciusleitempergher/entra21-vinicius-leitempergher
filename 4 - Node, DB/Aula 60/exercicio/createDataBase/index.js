@@ -1,4 +1,4 @@
-async function createDataBase(db) {
+function createDataBase(db) {
     db.query(`
             CREATE TABLE IF NOT EXISTS clientes(
                 uuid UUID PRIMARY KEY DEFAULT gen_random_uuid(),
