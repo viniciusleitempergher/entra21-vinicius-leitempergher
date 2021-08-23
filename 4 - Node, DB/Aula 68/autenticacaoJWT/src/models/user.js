@@ -6,18 +6,15 @@ const bcrypt = require("bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      this.hasOne(models.RefreshToken, { foreignKey: "user_id", as: "refreshToken" })
+      this.hasOne(models.RefreshToken, { foreignKey: "user_id" });
     }
 
-    verifyPassword(password) {
+    isPasswordValid(password) {
       return bcrypt.compareSync(password, this.password);
     }
 
     toJSON() {
-      return {
-        ...this.get(),
-        password: undefined
-      }
+      return { ...this.get(), password: undefined, role: undefined };
     }
   };
   User.init({
@@ -28,12 +25,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
-      unique: true,
-      allowNull: false
+      unique: true
     },
     password: {
       type: DataTypes.STRING,
@@ -41,7 +37,13 @@ module.exports = (sequelize, DataTypes) => {
       set(password) {
         this.setDataValue("password", bcrypt.hashSync(password, 10));
       }
-    }
+    },
+    role: {
+      type: DataTypes.STRING,
+      validate: {
+        isIn: [["user", "admin"]]
+      }
+    }    
   }, {
     sequelize,
     modelName: 'User',
