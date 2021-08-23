@@ -1,67 +1,19 @@
 const express = require('express');
+
+const usuariosControllers = require('../controllers/usuariosControllers');
+
+const usuariosValidations = require('../validations/usuariosValidations');
+
 const router = express.Router();
 
-router.put("/:id", async (req, res) => {
-    try {
-        const usuario = await Usuario.findOne({
-            where: {
-                id: req.params.id
-            }
-        });
+router.put("/:id", usuariosValidations.put, usuariosControllers.update);
 
-        if (!usuario) {
-            return res.status(404).json({ message: "Usuário não foi encontrado!" });
-        }
+router.delete("/:id", usuariosControllers.remove);
 
-        const usuarioAtualizado = req.body;
+router.get("/:id", usuariosValidations.get, usuariosControllers.getOne);
 
-        Object.assign(usuario, usuarioAtualizado);
+router.get("/", usuariosControllers.getAll);
 
-        await usuario.save();
-
-        res.json(usuario);
-    } catch (error) {
-        res.status(400).json({ message: "Ocorreu um erro" });
-    }
-});
-
-router.delete("/:id", async (req, res) => {
-    try {
-        const usuario = await Usuario.findOne({
-            where: {
-                id: req.params.id
-            }
-        });
-
-        if (!usuario) {
-            return res.status(404).json({ message: "Usuário não foi encontrado!" });
-        }
-
-        await usuario.destroy();
-
-        res.status(204).end();
-    } catch (error) {
-        res.status(400).json({ message: "Ocorreu um erro" });
-    }
-});
-
-router.get("/:id", async (req, res) => {
-
-});
-
-router.get("/", async (req, res) => {
-
-})
-
-router.post("/", async (req, res) => {
-    const body = req.body;
-
-    try {
-        const usuario = await Usuario.create(body);
-        res.json(usuario);
-    } catch (e) {
-        res.status(400).json({ message: "Ocorreu um erro" });
-    }
-});
+router.post("/", usuariosValidations.post, usuariosControllers.create);
 
 module.exports = router;
