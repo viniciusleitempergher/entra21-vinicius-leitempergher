@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      this.hasOne(models.RefreshToken, { foreignKey: "user_id", as: "refreshToken" })
+      this.hasOne(models.RefreshToken, { foreignKey: "user_id", as: "refreshToken" });
     }
 
     verifyPassword(password) {
@@ -40,6 +40,13 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       set(password) {
         this.setDataValue("password", bcrypt.hashSync(password, 10));
+      }
+    },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isIn: [["admin", "user"]]
       }
     }
   }, {

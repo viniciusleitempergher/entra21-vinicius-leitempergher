@@ -7,7 +7,6 @@ const usersRoutes = require("./routes/usersRoutes");
 
 const erroHandler = require("./middlewares/errorHandler");
 
-
 app.use(express.json());
 
 app.use("/auth", authRoutes);
