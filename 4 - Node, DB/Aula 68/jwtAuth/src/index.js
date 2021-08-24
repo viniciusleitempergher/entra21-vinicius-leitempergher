@@ -123,7 +123,7 @@ app.get("/users", authMiddleware, async (req, res) => {
         res.json(users);
     } catch (error) {
         console.log(error);
-        res.status(500).json({ message: "Oops! Something bag happened!" });
+        res.status(500).json({ message: "Oops! Something bad happened!" });
     }
 });
 
