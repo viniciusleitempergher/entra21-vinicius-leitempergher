@@ -44,6 +44,12 @@ module.exports = (sequelize, DataTypes) => {
     profile_url: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    role: {
+      type: DataTypes.STRING,
+      validate: {
+        isIn: [["user", "admin"]]
+      }
     }
   }, {
     sequelize,

@@ -19,11 +19,21 @@
             let headers = new Headers();
             headers.append("Content-Type", "application/json");
 
-            const validityToken = await fetch('http://localhost:3000/auth/tokenlogin', {
+            const tokens = await fetch('http://localhost:3000/auth/login', {
                 method: 'POST',
                 headers,
                 body: JSON.stringify({ id_token })
             });
+
+            console.log(await tokens.json());
+
+            const userInfo = await fetch('http://localhost:3000/userinfo', {
+                method: 'POST',
+                headers,
+                body: JSON.stringify( tokens )
+            });
+
+            console.log(userInfo);
         }
     </script>
 </body>

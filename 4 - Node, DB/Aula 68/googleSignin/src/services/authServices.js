@@ -9,8 +9,8 @@ const client = new OAuth2Client(CLIENT_ID);
 
 const { User, RefreshToken } = require('../db/models');
 
-async function login(token) {
-    const [GoogleUserId, GoogleUserInfo] = await verify(token);
+async function login(googleToken) {
+    const [GoogleUserId, GoogleUserInfo] = await verify(googleToken);
 
     if (!GoogleUserId) {
         throw new createHttpError(401, "Something went wrong...");
@@ -28,13 +28,9 @@ async function login(token) {
         defaults: newUser
     });
 
-    if (!userCreated) {
-        
-    }
+    const { token, refreshToken } = await createTokens(user);
 
-    createTokens(user);
-
-    return user;
+    return { token, refreshToken };
 }
 
 async function verify(token) {
@@ -50,20 +46,20 @@ async function verify(token) {
 async function createTokens(user) {
     const { email } = user;
 
-    const registeredUser = await User.findOne({ where: { email } });    
+    const registeredUser = await User.findOne({ where: { email } });
 
     if (!registeredUser) {
         throw new createHttpError(500, "Something went wrong...");
     }
 
-    const token = jwt.sign({ 
+    const token = jwt.sign({
         sub: registeredUser.id,
         role: registeredUser.role
     }, process.env.TOKEN_SECRET, {
         expiresIn: "20m"
     });
 
-    const refreshTokenExpiration = Date.now() + ms("30 days");    
+    const refreshTokenExpiration = Date.now() + ms("30 days");
 
     const newRefreshToken = jwt.sign({
         sub: registeredUser.id,
@@ -80,12 +76,54 @@ async function createTokens(user) {
 
     if (!created) {
         refreshToken.token = newRefreshToken;
-        refreshToken.save();
+        await refreshToken.save();
     }
-
+    
     return { token, refreshToken: newRefreshToken };
 }
 
+async function refreshToken({ refreshToken }) {
+    const validRefreshToken = await RefreshToken.findOne({
+        where: {
+            token: refreshToken
+        },
+        include: "user"
+    });
+
+    console.log(validRefreshToken);
+
+    if (!validRefreshToken) {
+        throw new createHttpError(401, "Invalid Refresh Token");
+    }
+
+    const token = jwt.sign({
+        sub: validRefreshToken.user.id,
+        role: validRefreshToken.user.role
+    }, process.env.TOKEN_SECRET, {
+        expiresIn: "20m"
+    });
+
+    const isRefreshTokenExpirated = Date.now() > validRefreshToken.expiresIn;
+
+    if (isRefreshTokenExpirated) {
+        const refreshTokenExpiration = Date.now() + ms("30 days");
+
+        const newRefreshToken = jwt.sign({
+            sub: validRefreshToken.user.id,
+            exp: refreshTokenExpiration,
+        }, process.env.REFRESH_TOKEN_SECRET);
+
+        validRefreshToken.token = newRefreshToken;
+        validRefreshToken.expiresIn = refreshTokenExpiration;
+        await validRefreshToken.save();
+
+        return { token, refreshToken: newRefreshToken }
+    }
+
+    return { token };
+}
+
 module.exports = {
-    login
+    login,
+    refreshToken
 };

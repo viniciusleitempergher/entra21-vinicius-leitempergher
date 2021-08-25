@@ -4,7 +4,9 @@ async function login(req, res, next) {
     try {
         const token = req.body.id_token;
 
-        const userid = await authServices.login(token);
+        const createdTokens = await authServices.login(token);
+
+        return res.json(createdTokens);
 
     } catch (error) {
         console.log(error);
