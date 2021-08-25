@@ -5,6 +5,7 @@ const cors = require('cors')
 app.use(express.json());
 
 const authRoutes = require("./routes/authRoutes");
+const errorHandler = require("./middlewares/errorHandler");
 
 app.use(cors({
     origin: "http://localhost:5501"
@@ -12,7 +13,7 @@ app.use(cors({
 
 app.use("/auth", authRoutes);
 
-app.use(express.json());
+app.use(errorHandler);
 
 app.listen(3000, () => {
     console.log("Servidor iniciou!");

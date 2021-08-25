@@ -1,6 +1,6 @@
 const authServices = require("../services/authServices");
 
-async function tokenlogin(req, res, next) {
+async function login(req, res, next) {
     try {
         const token = req.body.id_token;
 
@@ -13,5 +13,5 @@ async function tokenlogin(req, res, next) {
 }
 
 module.exports = {
-    tokenlogin
+    login
 };
