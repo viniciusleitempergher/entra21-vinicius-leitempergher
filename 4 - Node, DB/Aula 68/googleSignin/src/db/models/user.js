@@ -2,10 +2,19 @@
 const {
   Model
 } = require('sequelize');
+const bcrypt = require("bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // define association here
+      this.hasOne(models.RefreshToken, { foreignKey: "user_id" });
+    }
+
+    isPasswordValid(password) {
+      return bcrypt.compareSync(password, this.password);
+    }
+
+    toJSON() {
+      return { ...this.get(), password: undefined, role: undefined };
     }
   };
   User.init({
