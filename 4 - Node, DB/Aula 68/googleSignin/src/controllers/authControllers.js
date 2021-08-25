@@ -4,7 +4,7 @@ async function tokenlogin(req, res, next) {
     try {
         const token = req.body.id_token;
 
-        const userid = await authServices.verify(token);
+        const userid = await authServices.loginOrCreate(token);
 
     } catch (error) {
         console.log(error);

@@ -8,6 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.UUID
       },
+      google_id: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        unique: true
+      },
       name: {
         type: Sequelize.STRING,
         allowNull: false
