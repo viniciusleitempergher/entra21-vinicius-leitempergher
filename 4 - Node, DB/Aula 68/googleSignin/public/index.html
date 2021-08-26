@@ -25,15 +25,30 @@
                 body: JSON.stringify({ id_token })
             });
 
-            console.log(await tokens.json());
+            const { token, refreshToken } = await tokens.json();
 
-            const userInfo = await fetch('http://localhost:3000/userinfo', {
-                method: 'POST',
-                headers,
-                body: JSON.stringify( tokens )
-            });
+            console.log(token);
+            console.log(refreshToken);
 
-            console.log(userInfo);
+            try {
+                const res = await fetch("http://localhost:3000/userinfo", {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    },
+                    method: "POST"
+                });
+
+                if (res.ok) {    
+                    const user = await res.json();
+                    
+                    console.log(user);
+                } else {
+                    console.log(res);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+
         }
     </script>
 </body>
