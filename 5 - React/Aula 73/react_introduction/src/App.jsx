@@ -6,7 +6,10 @@ import { ListaAlunos } from './components/ListaAlunos';
 import { ManipulandoEventos } from './components/ManipulandoEventos';
 import { MembroFamilia } from './components/MembroFamilia';
 import { Relogio } from './components/Relogio';
+import { ValorAleatorio } from './components/ValorAleatorio';
 import { WithProps } from './components/WithProps';
+import { ComponentesControlados } from './components/ComponentesControlados';
+import { Contador } from './components/Contador';
 
 function App() {
   return (
@@ -37,6 +40,15 @@ function App() {
 
         <Card titulo='States'>
           <Relogio />
+          <ValorAleatorio max={100} />
+        </Card>
+
+        <Card titulo="Componentes Controlados">
+          <ComponentesControlados />
+        </Card>
+
+        <Card titulo='State Assíncrono'>
+          <Contador />
         </Card>
       </div>
     </div>
